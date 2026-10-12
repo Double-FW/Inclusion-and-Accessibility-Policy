@@ -65,9 +65,80 @@ If you are new to this repository, begin with:
 3. `Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md` for governance and accountability structure
 4. `LICENSE` for usage terms
 
+## Policy generation prompt overview
+
+This repository includes a reusable prompt for generating an organisational accessibility and inclusion policy from evidence, approved commitments, and governance context. The prompt is designed for a policy author, delegated governance lead, or AI-assisted drafting workflow. It is a drafting aid, not an authority to change organisational obligations or commitments.
+
+The purpose of the prompt is to produce a policy draft that:
+- reflects the organisation's mission, values, and approved commitments
+- aligns with applicable legal and regulatory duties
+- identifies the scope, decision owners, and evidence basis for each clause
+- distinguishes approved commitments from future intentions or unverified proposals
+- captures unresolved gaps or conflicts for human review before approval
+
+### Prompt inputs
+
+Provide the prompt with the following information:
+- organisation name and context
+- approved executive commitments
+- regulatory or contractual obligations that apply to the organisation
+- brand values, purpose, and strategic intent
+- operational activities, service journeys, and affected stakeholders
+- current governance, ownership, and delivery processes
+- evidence from research, testing, complaints, participation, and operational records
+- any known gaps, conflicts, or unresolved questions
+
+### Prompt instructions
+
+Use the following instruction pattern when generating a draft policy:
+
+```text
+Create a draft accessibility and inclusion policy for [organisation].
+Use the supplied approved commitments, validated applicability register, brand values,
+activity and journey inventory, current governance processes, and evidence pack.
+Reflect the organisation's own vocabulary, scope, and decision authority.
+Trace every substantive clause to its source identifier and preserve the approval status
+of each commitment or obligation.
+
+Connect each commitment to an intended outcome, relevant activity, process,
+accountable owner, evidence, reporting route, and review trigger.
+Do not invent legal conclusions, ownership, budgets, deadlines, certification claims,
+resource commitments, or delivery capabilities without evidence.
+Where information is missing, use a clearly marked placeholder and record the question for review.
+Identify conflicts, gaps, and approval questions, and state which authority should decide them.
+
+Return four outputs:
+1. the draft policy
+2. a clause-to-source and delivery register
+3. a decision and gap log
+4. an approval and review checklist
+
+Clearly identify which material is ready for review and which elements require executive,
+legal, or operational confirmation before adoption.
+```
+
+### Output requirements
+
+The generated output should include:
+- a policy draft with clear sections for purpose, scope, commitments, delivery, ownership, evidence, and review
+- clause-level traceability from each policy statement to its authority or evidence source
+- a decision log for conflicts, missing authority, and unresolved implementation gaps
+- an approval checklist confirming ownership, validation, and review readiness
+
+### Mandatory safeguards
+
+Before the draft is considered usable for formal adoption, the organisation must:
+- confirm the source authority for each material clause
+- validate all stated legal or regulatory obligations
+- verify ownership, reporting, and escalation responsibilities
+- check that approved commitments are not overstated or conflated with aspirational intent
+- review participation evidence and unresolved barriers with affected stakeholders
+
+This prompt is most effective when used alongside `AGENTS.md` and `Accessibility_and_Inclusion_Policy_Creation_Guide.md`, which define the governance, audit, and automation expectations for policy drafting.
+
 ## Purpose
 
-The repository supports organisations in designing inclusion and accessibility policy that is both compliant and values-driven. It is intended to help translate principles into operational practice through clear policy language, defined accountability, and consistent governance.
+The repository supports organisations in designing inclusion and accessibility policy that is both compliant and values-driven. It is intended to help translate principles into operational practice, strengthen accountability, and embed measurable inclusion outcomes in governance and delivery.
 
 ## Repository status
 
