@@ -31,7 +31,7 @@ The BBC Digital Product Accessibility Policy connects accessibility to its organ
 
 Its practical mechanisms include shared product, design and editorial responsibility; its design system and accessibility guidance; specialist support; a champions network; and provisions for different products and media. These mechanisms are specific to the BBC. The transferable lesson is the relationship between purpose, commitments and practice, rather than copying its operating model. \[1\]
 
-| **BBC policy feature**                     | **How to apply the approach**                                                                                             |
+| **Policy feature**                     | **How to apply the approach**                                                                                             |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
 | Purpose and organisational ambition        | Use the organisation's own mission, approved commitments and brand values. Explain why accessibility matters to its work. |
 | Defined digital activities                 | Identify the actual products, services, environments and relationships covered by the policy.                             |
