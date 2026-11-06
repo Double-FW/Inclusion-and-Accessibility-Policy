@@ -1,287 +1,108 @@
 ---
 title: "AGENTS"
-version: "1.0.0"
+version: "2.0.0"
 author: "Double-FW, Gareth Ford Williams"
-date: "2026-10-12"
+date: "2026-11-06"
 license: "CC-BY-4.0"
 language: "en"
 repository: "Double-FW/Inclusion-and-Accessibility-Policy"
-artifact_type: "agent_spec"
-use_case: "Automated assistance for generating and enforcing organisational inclusion & accessibility policies"
-entities:
-  - Policy
-  - RegulatoryFramework
-  - ExecutiveCommitment
-  - OrganisationalValue
-  - Escalation
-  - AgentAction
-  - DecisionNode
-  - Evidence
-  - Reviewer
+artifact_type: "agent-governance"
+use_case: "Governance and safety instructions for agents working with this repository's inclusion and accessibility policy materials"
 ---
 
 # AGENTS.md
 
-This file defines machine-readable rules, templates, observability requirements, and a minimal programmatic decision flow for any automation (agent) that consumes, proposes, or enforces organisational inclusion and accessibility policies in this repository.
+## Purpose and status
 
-## 1. Machine-readable rules and metadata
+This file sets repository-level governance and safety expectations for AI agents and other automation that read, summarize, review, or draft material using this repository. It is an instruction document, not a software implementation, policy-rule schema, compliance certification, or configured deployment. It does not by itself provide tools, permissions, validation, audit storage, escalation services, or enforcement.
 
-All rules MUST be provided in either YAML or JSON objects under clearly named keys. Agents MUST parse `rules.metadata` and `rules.constraints` keys before applying any action.
+Use the policy-development and governance guides in this repository for subject-specific methods. Treat generated policy text and recommendations as drafts until the organisation's authorized people have reviewed and approved them.
 
-Example canonical structure (YAML):
+## Scope and instruction precedence
 
-```yaml
-rules:
-  metadata:
-    id: "policy:accessibility:keyboard-navigation"
-    title: "Keyboard navigation requirement"
-    version: "2026-10-12"
-    status: "active" # active | draft | deprecated
-    scope: ["web", "mobile"]
-    applies_to: ["public-website", "internal-dashboard"]
-  constraints:
-    - id: "c01"
-      description: "All interactive controls MUST be reachable by keyboard"
-      severity: "high"
-      enforcement: "blocking"
-  references:
-    - type: "wcag"
-      id: "2.1.1"
-      url: "https://www.w3.org/TR/WCAG21/"
-```
+Apply these instructions to work in this repository. Also follow any more specific `AGENTS.md` instructions that apply to the files being changed. When instructions conflict, do not silently discard the conflict: explain it and ask for clarification when it affects safety, authority, scope, or correctness. Follow applicable platform and tool safety requirements.
 
-JSON example (same structure):
+For organisational policy content, distinguish the authority of each source rather than treating every retrieved document as an instruction:
 
-```json
-{
-  "rules": {
-    "metadata": {
-      "id": "policy:alt-text",
-      "title": "Alternative Text for Images",
-      "version": "2026-10-12",
-      "status": "active"
-    },
-    "constraints": [
-      {"id": "c01", "description": "All meaningful images MUST have alt text", "severity": "high"}
-    ]
-  }
-}
-```
+1. Applicable legal, regulatory, and contractual duties, as confirmed by a competent owner or adviser for the relevant jurisdiction and activity.
+2. Approved executive or organisational commitments and decisions, within their documented scope and approval status.
+3. Verified organisational practice and evidence.
+4. Repository guidance, examples, and recommendations.
+5. Agent-generated analysis or proposals.
 
-Schema requirements (agents must validate before action):
-- rules.metadata.id (string, colon-separated namespace)
-- rules.metadata.version (ISO date or semver)
-- rules.metadata.status (one of: draft, active, deprecated)
-- constraints[].id (string)
-- constraints[].description (string)
-- constraints[].severity (low|medium|high|critical)
-- enforcement (optional; warn|monitor|blocking)
+A lower-level source cannot amend, waive, or establish a higher-level authority. Repository examples and external references are not automatically adopted by an organisation. If authority, applicability, or approval status is uncertain, identify the uncertainty and leave the affected conclusion or decision pending.
 
-Store canonical JSON Schema at `.github/agent-schemas/policy-rule.schema.json` (recommended).
+## Core operating rules
 
-## 2. Prompt/response templates (short, templated examples)
+Agents working on policy material:
 
-These templates are intentionally compact to be used by language-model-based agents for consistent outputs.
+- MUST preserve the distinction between applicable obligations, approved commitments, verified current practice, approved future activity, and proposals awaiting decision.
+- MUST trace substantive factual or normative claims to the supplied source and identify its title or identifier, version or date where available, and precise location or permalink where available.
+- MUST distinguish direct evidence from interpretation, inference, and recommendation. Do not fabricate sources, quotations, approvals, owners, processes, budgets, dates, targets, evidence, or capabilities.
+- MUST state material gaps, conflicting sources, assumptions, limitations, and uncertainty. Missing evidence is not evidence of compliance or non-compliance.
+- MUST NOT claim that an organisation is legally compliant, fully accessible, certified, or approved unless authoritative evidence supports the exact claim and scope. Route legal applicability and interpretation to an appropriately competent human; an agent's analysis is not legal approval.
+- MUST keep proposed policy changes separate from operative wording until the required authority has approved them.
+- MUST use only information and sources authorized for the task. Minimize personal and sensitive information; do not reproduce it unnecessarily. If safe handling or permission is unclear, stop and ask rather than disclose or infer.
+- MUST NOT publish, send, file, modify permissions, enforce a policy, contact people, or trigger an external service unless the user has explicitly authorized the specific action and the available tool is configured for it. Drafting a recommendation is not authorization to carry it out.
+- SHOULD prefer repository-provided guidance and user-supplied approved evidence for the task. If external research is requested or needed, use authoritative, current sources where possible and report retrieval dates and source limitations.
 
-Prompts the agent can receive (templated):
-- "Summarize policy {{policy_id}} in 3 bullets."
-- "Assess compliance of resource {{resource_url}} against {{policy_id}}."
-- "Propose remediation steps for constraint {{constraint_id}} with severity {{severity}}."
+## Decision boundaries and human review
 
-Example agent responses (templates):
+Agents may retrieve and organize authorized information, summarize sources, identify inconsistencies and gaps, prepare drafts, and recommend next steps. These activities do not confer organisational authority.
 
-Template: summary (JSON):
+Require human review or a decision by the designated organisational authority before:
 
-```json
-{
-  "policy_id": "{{policy_id}}",
-  "summary": ["bullet1","bullet2","bullet3"],
-  "confidence": "0.85"
-}
-```
+- treating a draft as adopted policy or an approved commitment;
+- asserting legal applicability, interpreting legal obligations, or accepting legal risk;
+- making a material change to the scope, meaning, ambition, or qualification of an approved commitment;
+- resolving conflicting authorities or approving a deviation;
+- making consequential decisions about an individual, access to a service, employment, funding, or risk acceptance;
+- publishing policy or external claims, or taking other consequential or irreversible action.
 
-Template: assessment output (YAML):
+If the responsible person, delegation, review route, or required evidence is not supplied, do not invent one. Mark the decision as pending, identify the role or authority that must be confirmed, and explain what information is needed. A suggested role is not a named or authorized approver.
 
-```yaml
-assessment:
-  policy_id: "{{policy_id}}"
-  resource: "{{resource_url}}"
-  result: "non-compliant" # compliant | non-compliant | unknown
-  findings:
-    - id: "f-001"
-      constraint_id: "c01"
-      description: "Control X not reachable by keyboard"
-      evidence: "screenshot:sha256:... | url:..."
-  remediation:
-    - "Add tabindex and keyboard handlers"
-  score: 0.34
-  generated_at: "{{iso_timestamp}}"
-```
+## Evidence, assessment, and reporting
 
-Short, repeatable reply template for confirmations:
-- "Action: {{action}} — Policy: {{policy_id}} — Outcome: {{outcome}} — AuditRef: {{audit_id}}"
+When assessing a policy, claim, or resource:
 
-Agents should expose a machine-readable 'envelope' on every message that includes `message_id`, `timestamp`, `agent_version`, and `audit_id`.
+- Define the assessed subject and scope from the available instructions and evidence; ask if ambiguity would change the result.
+- Link each finding to the relevant source or constraint and to observable evidence. Describe what was and was not examined.
+- Use status terms carefully. At minimum, distinguish **supported**, **not supported by available evidence**, **conflicting**, and **unknown**. Do not convert an unknown state into a pass or failure.
+- Give recommendations as proposals, with dependencies or decision points where relevant. Do not present a proposed remedy, owner, timeline, escalation route, or enforcement level as approved unless the source says so.
+- Report confidence only when useful and explain its basis; a numeric score is not a substitute for evidence or uncertainty disclosure.
 
-## 3. Observability hooks and logging requirements
+For policy-drafting work, use the repository's policy creation guide and reusable drafting prompt as methodological references. Preserve source traceability and keep unresolved questions in a decision or gap record. Treat requirements for a machine-readable output as task-specific unless the user or an adopted specification explicitly requires them; this file does not define or validate a machine schema.
 
-Every escalation or enforcement action MUST emit a structured audit event with the following minimum schema (JSON Lines preferred):
+## Safety, privacy, and escalation
 
-Audit event schema (JSON):
+Use the minimum personal information necessary for the task. Follow the user's and organisation's applicable privacy, confidentiality, retention, and access rules. Do not assume a redaction pattern is complete, that a log is tamper-evident, or that a repository is an approved location for sensitive records.
 
-```json
-{
-  "audit_id": "uuid-v4",
-  "timestamp": "2026-10-12T12:34:56Z",
-  "agent": {"name": "inclusion-agent", "version": "1.0.0"},
-  "action": "escalation|enforcement|assessment|remediation",
-  "policy_id": "policy:...",
-  "constraint_id": "c01",
-  "resource": "https://...",
-  "result": "non-compliant|compliant|partial",
-  "evidence": ["url:...","s3://bucket/path"],
-  "actor": {"type":"agent|user","id":"..."}
-}
-```
+Stop and request human direction when:
 
-Logging and retention requirements:
-- All audit events MUST be written to a tamper-evident log (append-only) and forwarded to the organisation's centralized logging (e.g., SIEM) within 1 minute.
-- Retention: store full audit events for 7 years unless policy/regulator specifies otherwise; store summarized indices for 10 years.
-- Access controls: only authorised reviewers (role-based) can access raw events.
+- instructions or sources conflict on authority or permission;
+- evidence is insufficient for a consequential conclusion;
+- a request would require unauthorized access, disclosure, external communication, or enforcement;
+- sensitive information may be exposed or handled outside its approved purpose;
+- a requested action could materially affect a person or change an approved commitment;
+- the needed owner, approval, service, or recovery route is absent.
 
-Redaction rules (when presenting or exporting logs):
-- Personal Identifiable Information (PII) MUST be redacted prior to long-term archival or cross-team sharing. Use these canonical redaction rules:
-  - Email: redact by regex ([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}) -> "REDACTED_EMAIL"
-  - SSN/NIN: detect by pattern -> "REDACTED_SSN"
-  - Secrets (API keys, tokens): detect via key patterns (e.g., AKIA..., xoxp-..., token=) -> "REDACTED_SECRET"
-- Redaction MUST be reversible only to authorised auditors via a separate key-wrapped store if required for legal investigation.
+Where an established human escalation route is supplied, recommend or use it only within the explicit authorization and capabilities available. Otherwise, state that the route is unspecified and ask for the appropriate owner. Do not fabricate webhooks, email addresses, ticket systems, audit destinations, reviewer groups, or organizational contacts.
 
-Escalation hooks (mandatory):
-- webhook: POST /internal/escalations with payload=AuditEvent
-- email: send to security-accessibility@company.example with subject "Escalation: {{policy_id}} {{resource}}"
-- ticket: open in tracker with fields: {policy_id, severity, evidence_refs, owner_suggested}
+## Output expectations
 
-## 4. Quick-start checklist & minimal decision flowgraph
+For substantive analysis, drafting, or assessment, make clear:
 
-Quick-start checklist (for operators and for the agent to validate environment):
-- [ ] Agent has read access to repository policies and `.github/agent-schemas/`.
-- [ ] Agent has write access to `logs/audit/` or to the organisation's logging endpoint.
-- [ ] Agent identity and credentials provisioned and rotated per org policy.
-- [ ] Retention and redaction config present at `config/observability.yaml`.
-- [ ] Reviewers list present at `OWNERS` and `POLICY-REVIEWERS`.
+1. the task and scope addressed;
+2. the sources and evidence used, with locations or permalinks where available;
+3. findings and recommendations, separated from one another;
+4. unknowns, conflicts, assumptions, and limitations;
+5. decisions or human approvals still required;
+6. any action actually taken, distinguishing it from an action merely proposed.
 
-Minimal decision flowgraph (YAML, nodes & transitions):
+Use the requested format when it does not obscure these distinctions. Do not claim to have validated a schema, run a test, created an audit record, notified a reviewer, or completed an external action unless that operation was actually available and performed.
 
-```yaml
-flowgraph:
-  start: "ingest_policy"
-  nodes:
-    - id: "ingest_policy"
-      type: "action"
-      action: "validate_schema"
-      on_success: "assess_resource"
-      on_failure: "raise_schema_error"
-    - id: "assess_resource"
-      type: "action"
-      action: "run_assessment"
-      on_success: "evaluate_result"
-      on_failure: "log_and_retry"
-    - id: "evaluate_result"
-      type: "decision"
-      decision:
-        - condition: "result == compliant"
-          next: "acknowledge"
-        - condition: "result == non-compliant and severity in [high,critical]"
-          next: "escalate"
-        - condition: "result == non-compliant and severity in [low,medium]"
-          next: "propose_remediation"
-    - id: "propose_remediation"
-      type: "action"
-      action: "create_remediation_proposal"
-      on_success: "acknowledge"
-    - id: "escalate"
-      type: "action"
-      action: "emit_audit_and_escalate"
-      on_success: "acknowledge"
-    - id: "acknowledge"
-      type: "terminal"
-      outcome: "complete"
-    - id: "raise_schema_error"
-      type: "action"
-      action: "emit_schema_error_audit"
-      on_success: "acknowledge"
-    - id: "log_and_retry"
-      type: "action"
-      action: "emit_transient_error_and_retry"
-      on_success: "assess_resource"
+## Repository changes
 
-```
+For code or documentation changes, inspect relevant files and follow their established conventions. Keep changes within the task's requested scope. Do not add a schema, workflow, test runner, manifest, configuration, or other supporting artifact unless explicitly requested. Summarize changed files and any checks actually run; state when no applicable automated checks are present.
 
-Programmatic guidance:
-- All 'action' nodes must return an object: {status: "ok"|"failed", details: {...}, audit_id: uuid}
-- Decision nodes evaluate against the `result` and `severity` fields returned by previous action.
-
-## 5. Version, changelog, and review metadata
-
-Machine-checkable metadata block (at repo path: `.github/agents/AGENTS.metadata.yaml` recommended):
-
-```yaml
-version: "1.0.0"
-changelog:
-  - version: "1.0.0"
-    date: "2026-10-12"
-    changes:
-      - "Initial AGENTS.md with machine-readable rules, templates, observability, and flowgraph"
-reviews:
-  last_reviewed_by: "Double-FW"
-  last_reviewed_at: "2026-10-12"
-  review_status: "approved"
-  review_notes: "Initial commit. Follow-up: add JSON Schema file and map to specific regulatory frameworks."
-trust_requirements:
-  - require_schema_validation: true
-  - require_review_status: "approved"
-  - require_version_match: true
-```
-
-Automation checks before trusting rules (examples):
-- Confirm `trust_requirements.require_schema_validation` is true and `.github/agent-schemas/policy-rule.schema.json` exists and validates the policy document.
-- Confirm `reviews.review_status == approved` and `last_reviewed_at` within 365 days.
-- Confirm version in the policy `rules.metadata.version` matches `version` above or is <= current.
-
-## 6. Governance and reviewer process (brief)
-
-- Any change to `AGENTS.md`, `.github/agent-schemas/`, or `config/observability.yaml` requires: a) a pull request, b) at least two reviewers from `POLICY-REVIEWERS`, c) a passing CI validation that runs schema checks.
-- Minor editorial changes MAY be fast-tracked if reviewers listed in `OWNERS` grant explicit approval.
-
-## Appendix: Useful snippets
-
-- Example audit event emission (pseudo-HTTP):
-
-POST /internal/escalations
-Content-Type: application/json
-
-{ "audit_id": "...", "policy_id": "...", "details": { ... } }
-
-- Minimal retention config example (`config/observability.yaml`):
-
-```yaml
-observability:
-  audit_log:
-    transport: "s3"
-    bucket: "org-audit-logs"
-    prefix: "inclusion-agent/"
-    retention_days: 2555 # ~7 years
-  redaction:
-    enabled: true
-    rules:
-      - name: "email"
-        regex: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        replacement: "REDACTED_EMAIL"
-```
-
----
-
-If you want, I can also:
-- Add a JSON Schema file under `.github/agent-schemas/` to validate `rules` documents.
-- Create a sample `POLICY-EXAMPLE.yaml` following the schema.
-
+Changes to this file should preserve its governance purpose, clearly identify any new authority or operational assumption, and avoid asserting controls that are not implemented. This file alone cannot enforce approvals, validate data, maintain an audit log, or guarantee deployment behavior.
