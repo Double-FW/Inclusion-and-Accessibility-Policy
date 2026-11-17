@@ -10,7 +10,7 @@ TARGET = 'GarethFW/Disability_Inclusion_and_Accessibility_Policy'
 ROOT = Path(__file__).resolve().parents[1]
 MANAGED = ('README.md', 'LICENSE', 'NOTICE.md', 'documents.jsonl', 'knowledge_chunks.jsonl',
            'provenance.json', 'record_schema.json', 'validation_report.json')
-REQUIRED_CONTEXT = {'AGENTS.md', 'README.md', 'Programme_Operating_and_Reporting_Map.md', 'Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md', 'Accessibility_and_Inclusion_Policy_Creation_Guide.md', 'Policy-Generation-Prompt.md'}
+REQUIRED_CONTEXT = {'Worked_Policy_Example_and_Review_Cases.md', 'Potential_Obligations_and_Applicability_Guide.md', 'Accessibility_and_Inclusion_Policy_Creation_Guide.md', 'Policy-Generation-Prompt.md', 'Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md', 'Public_Source_Register.md', 'Programme_Operating_and_Reporting_Map.md', 'README.md', 'AGENTS.md'}
 EXCLUDED_PREFIXES = ('Inclusion-Policy-RAG-and-Prompts/',)
 
 def digest(data):
@@ -42,7 +42,9 @@ def load_config(root=ROOT):
         p = PurePosixPath(path)
         if p.is_absolute() or '..' in p.parts or any(x.startswith('.') for x in p.parts) or p.suffix != '.md':
             raise ValueError('Only approved Markdown source paths may be exported.')
-    if set(cfg['required_files']) != set(paths + ['LICENSE']):
+    if cfg.get('supporting_files') != ['sources/public-references.json']:
+        raise ValueError('The inspected public-reference inventory must remain required.')
+    if set(cfg['required_files']) != set(paths + cfg['supporting_files'] + ['LICENSE']):
         raise ValueError('All approved documents and LICENSE must be required.')
     for field in ('document_only_files','context_files'):
         values = cfg[field]
@@ -50,9 +52,9 @@ def load_config(root=ROOT):
             raise ValueError(field + ' must contain unique approved paths.')
     if not REQUIRED_CONTEXT <= set(cfg['context_files']):
         raise ValueError('Policy governance, creation/RACI guides, prompt, programme map and orientation must be retained.')
-    expected={p:'CC-BY-4.0' if p=='AGENTS.md' else 'MIT' for p in paths}
+    expected={p:'MIT' for p in paths}
     if cfg.get('source_licenses') != expected:
-        raise ValueError('Preserve root MIT and the file-specific CC BY 4.0 notice; review any changed licence allocation.')
+        raise ValueError('All original source documents must retain MIT; review changed licence declarations.')
     return cfg
 
 def public_source():
@@ -70,7 +72,7 @@ def read_sources(root,cfg):
         attrs,raw_path=item.split(b'\t',1)
         mode,kind,sha=attrs.decode().split();tree[raw_path.decode()] = (mode,kind,sha)
     sources,manifest={},[]
-    for path in cfg['files']+['LICENSE']:
+    for path in cfg['files']+cfg['supporting_files']+['LICENSE']:
         if path not in tree:raise ValueError('Required source is missing: '+path)
         mode,kind,sha=tree[path]
         if mode!='100644' or kind!='blob':raise ValueError('Source must be a committed regular file: '+path)

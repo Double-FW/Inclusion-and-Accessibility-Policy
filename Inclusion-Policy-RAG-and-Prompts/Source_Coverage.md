@@ -1,139 +1,19 @@
-# Source coverage — Inclusion and Accessibility Policy
+# Source coverage and current body identities
 
-Repository: https://github.com/Double-FW/Inclusion-and-Accessibility-Policy  
-Snapshot commit: `ecb72286ccc1e941e3dbe9a472f52b8f0cb29989`  
-Retrieved: 8 November 2026  
-Coverage: **6/6 tracked files; 104,838 original UTF-8 bytes retained.**
+Rebuilt 17 November 2026 from the corrected current sources. This is a per-file byte/hash inventory, not the old snapshot or a claim of a single captured Git revision. Original source bodies are in Sources/. Source copies and the compiled reference are derived views, not independent authorities. All original included material is MIT; external links retain their own terms.
 
-Every file in the recursive repository inventory was fetched by its blob SHA. Every preserved source was checked against the inventory byte count and Git blob hash. Source bodies are complete; the RAG adds navigation and provenance and resolves recognised inline source links. All source files are also included separately without content edits. No branches, issues, pull requests, history, submodules or external linked materials are claimed as part of this snapshot. The inventory reported no truncation and contained only regular text-file blobs and directories.
+| Source | Bytes | SHA-256 | Git blob SHA |
+| --- | ---: | --- | --- |
+| [AGENTS.md](<Sources/AGENTS.md>) | 11285 | `17e6cf92915e829d657b1c0742f9ca6702fbef0d9b0e88cabaed17fe8bb088c5` | `898b1fd9d40183b9a25f3ec4df1db04ca60e318f` |
+| [README.md](<Sources/README.md>) | 4721 | `dabce924b492ee00f4cd552e1c8fa9787777752281ba392781ae8447574fcf29` | `b30937e8fcc529895ef01ef7b61b13ad6ae516ee` |
+| [Accessibility_and_Inclusion_Policy_Creation_Guide.md](<Sources/Accessibility_and_Inclusion_Policy_Creation_Guide.md>) | 38107 | `bed4f207c118f8aa92c5370356d56903822bf2e5e7612aa87fa807b6be6df4b8` | `04705b8d9d58e683ebcd3e73b71e2994860896af` |
+| [Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md](<Sources/Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md>) | 41443 | `9ebd9435e7666d1c6f033400156456f4f96c0e01b7867224dabba5e5de84763e` | `695955c82786e8f6a2d5e85639913ad041107ebc` |
+| [Policy-Generation-Prompt.md](<Sources/Policy-Generation-Prompt.md>) | 10333 | `68e53e3c7235c354bfdffff0b3e353f35e0d8e5f908af5ef1879e916e0352505` | `da3eb48c666ab201ac1775a2d2956d108d300073` |
+| [Programme_Operating_and_Reporting_Map.md](<Sources/Programme_Operating_and_Reporting_Map.md>) | 7961 | `d6356d851901f0057c3f698d587b103f178377b299e29b76984150a18b334d8e` | `0ad4d680c6d6a6d07ad2470f7cbbaa6e183b64fb` |
+| [Potential_Obligations_and_Applicability_Guide.md](<Sources/Potential_Obligations_and_Applicability_Guide.md>) | 6711 | `d597aa871c451f4d832ae43e7570f39e715c0f6cc8a2b76423ee6051fcf17fb4` | `ced0c5f6ca5a2007e620b9abe0a421d8d7668f4e` |
+| [Public_Source_Register.md](<Sources/Public_Source_Register.md>) | 7313 | `b6e25d941fba543e6bd776107917ab593272dea4b3f809b8e99521eafe6da981` | `3cf05a103df72eddd8739dd2d38667d4599713d5` |
+| [Worked_Policy_Example_and_Review_Cases.md](<Sources/Worked_Policy_Example_and_Review_Cases.md>) | 6833 | `a1cefdfd2aa0bbed6a82f35a9c6cc02547c23491ae6234850d0769ddd8ab2d97` | `262ebf7481315d4778e2dd4c5a1bf3efc440c7da` |
+| [sources/public-references.json](<Sources/sources/public-references.json>) | 11321 | `657416eb271fe108c9003c9af6b2d1d3f12872a0f01369229f74c4c59390f3e4` | `80c9eb2ecef041f5f639bbd6d62b0457c10a337f` |
+| [LICENSE](<Sources/LICENSE>) | 1066 | `7ef02bc0b6ba376de57be5f27784eef23df6a74068a4a2a172f95ba2c605b7af` | `3149d6917c830929b7a4b29366a0ab796207731c` |
 
-| Source ID | File at pinned revision | Role | Original bytes | Blob SHA |
-| --- | --- | --- | ---: | --- |
-| S001 | [Accessibility_and_Inclusion_Policy_Creation_Guide.md](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/Accessibility_and_Inclusion_Policy_Creation_Guide.md) | Primary programme guidance | 36,973 | `f9e3ccb18d27dd0131d6d435db280d4c9012194f` |
-| S002 | [README.md](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/README.md) | Management/reference material | 6,840 | `cb93984d43b24c1a8078cf51963dffe431a5ec34` |
-| S003 | [AGENTS.md](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/AGENTS.md) | Source governance; advisory context | 9,366 | `5009c344663ef24bcabffa65973562e8a71f7c0a` |
-| S004 | [Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md) | Management/reference material | 42,271 | `b762c54cae25dbebe514d8bcb9324eb1079ba93f` |
-| S005 | [Policy-Generation-Prompt.md](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/Policy-Generation-Prompt.md) | Management/reference material | 8,322 | `f9fbde5c15912cb285f83a11edb0cdb97d4ec265` |
-| S006 | [LICENSE](https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/blob/ecb72286ccc1e941e3dbe9a472f52b8f0cb29989/LICENSE) | Licence / rights notice | 1,066 | `3149d6917c830929b7a4b29366a0ab796207731c` |
-
-## Heading lookup
-
-Use these original headings as retrieval labels within the corresponding source section. Repeated headings and source-local identifiers retain their original scope. Documents without Markdown headings can be retrieved by their source ID and explicit terms.
-
-- **S001** · Guidance for policy authors and executive sponsors
-- **S001** · The governing principle
-- **S001** · What the completed work should provide
-- **S001** · How to use this guide
-- **S001** · 1 Learn from the BBC policy
-- **S001** · Keep four types of document distinct
-- **S001** · Avoid importing authority from an example
-- **S001** · 2 Assemble the organisational evidence
-- **S001** · Classify every proposed statement
-- **S001** · Define the boundary explicitly
-- **S001** · 3 Translate evidence into policy clauses
-- **S001** · Establish applicable obligations
-- **S001** · Translate values into observable experience
-- **S001** · Build a complete connection
-- **S001** · Resolve conflicts before approval
-- **S001** · 4 Structure the draft policy
-- **S001** · Write at the right level
-- **S001** · 5 Connect policy to change programmes
-- **S001** · Prevent silent loss of commitments
-- **S001** · Keep deviations visible
-- **S001** · 6 Assign ownership and involve people
-- **S001** · Participation is part of the evidence
-- **S001** · Specialists and champions support embedded ownership
-- **S001** · 7 Report delivery and human outcomes
-- **S001** · A minimum executive report
-- **S001** · Measures must explain what they mean
-- **S001** · Protect the people behind the data
-- **S001** · Connect existing governance views
-- **S001** · 8 Review alignment and manage revisions
-- **S001** · Set a proportionate cycle
-- **S001** · Use a repeatable review sequence
-- **S001** · Keep the authority boundary intact
-- **S001** · Check readiness for approval
-- **S001** · 9 Use a controlled drafting brief
-- **S001** · Reusable drafting instruction
-- **S001** · Supporting record formats
-- **S001** · Review AI output before adoption
-- **S001** · 10 Apply the approach in practice
-- **S001** · An illustrative commitment carried into delivery
-- **S001** · Use Double FW resources according to their role
-- **S001** · 11 Select operational references
-- **S001** · Maintain an adopted reference register
-- **S001** · Keep the policy specific to the organisation
-- **S001** · Sources and supporting resources
-- **S001** · Key linked documents
-- **S002** · Inclusion-and-Accessibility-Policy
-- **S002** · Repository overview
-- **S002** · Contents
-- **S002** · 1. AGENTS.md
-- **S002** · 2. Accessibility and Inclusion Policy Creation Guide
-- **S002** · 3. RACI and Steering Group Guide
-- **S002** · 4. License
-- **S002** · 5. Documentation map
-- **S002** · Recommended starting points
-- **S002** · Policy generation prompt overview
-- **S002** · Prompt inputs
-- **S002** · Prompt instructions
-- **S002** · Output requirements
-- **S002** · Mandatory safeguards
-- **S002** · Purpose
-- **S002** · Repository status
-- **S003** · AGENTS.md
-- **S003** · Purpose and status
-- **S003** · Scope and instruction precedence
-- **S003** · Core operating rules
-- **S003** · Decision boundaries and human review
-- **S003** · Evidence, assessment, and reporting
-- **S003** · Safety, privacy, and escalation
-- **S003** · Output expectations
-- **S003** · Repository changes
-- **S004** · Human accountability and agentic AI execution
-- **S004** · How to use the two RACIs
-- **S004** · Adoption status
-- **S004** · 1 Establish the steering group mandate
-- **S004** · Purpose and scope
-- **S004** · Terms of reference for adoption
-- **S004** · Quorum and decisions
-- **S004** · 2 Define the human roles
-- **S004** · 3 Operate with or without a specialist team
-- **S004** · When specialist professionals are available
-- **S004** · When responsibilities are embedded
-- **S004** · No specialist team does not mean no specialist capability
-- **S004** · Participation and access
-- **S004** · 4 Set decision rights before allocating work
-- **S004** · Keep obligations and commitments distinct
-- **S004** · Use specific activities and a single accountable owner
-- **S004** · 5 Human RACI for policy development
-- **S004** · Evidence and completion conditions
-- **S004** · Consultation is not a signature collection exercise
-- **S004** · 6 Human RACI for operation and assurance
-- **S004** · Keep reporting and delivery connected
-- **S004** · Keep individual cases separate from strategic oversight
-- **S004** · 7 Define the agents and their limits
-- **S004** · Read the AI RACI without transferring accountability
-- **S004** · Agree automation levels
-- **S004** · 8 AI system RACI for preparation and drafting
-- **S004** · Required outputs and acceptance
-- **S004** · Dependency references
-- **S004** · Prevent unsupported drafting
-- **S004** · 9 AI system RACI for operation and reporting
-- **S004** · Separate preparation from approval
-- **S004** · Act on signals without overstating them
-- **S004** · Protect approval integrity
-- **S004** · 10 Record and enforce known dependencies
-- **S004** · Do not treat a workflow as a linear checklist
-- **S004** · 11 Run meetings reporting and escalation
-- **S004** · A standard agenda
-- **S004** · Executive reporting
-- **S004** · Escalation and incident handling
-- **S004** · Review effectiveness
-- **S004** · 12 Work through a policy change
-- **S004** · Example of a supplier change affecting employee access
-- **S004** · Starting checklist
-- **S004** · Sources and relationship to Double FW guidance
-- **S004** · Primary operating model
-- **S004** · Supporting organisational resources
-- **S004** · Preserve source and approval boundaries
+Checks establish byte preservation and local navigation only, not legal currency, genuine approvals, effective controls or model accuracy. The public-reference access checks have the separate scope/date in the public register.

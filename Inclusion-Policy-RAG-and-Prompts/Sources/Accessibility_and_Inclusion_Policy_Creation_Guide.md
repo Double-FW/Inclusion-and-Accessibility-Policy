@@ -2,7 +2,9 @@ Creating an organisational accessibility and inclusion policy
 
 # Guidance for policy authors and executive sponsors
 
-Version 1.0 | 12 October 2026
+Version 1.1 | 17 November 2026
+
+Original edition: 12 October 2026. Public-dependency and consistency revision; current legal applicability was not determined by this revision.
 
 A policy should explain how an organisation puts its authorised commitments into practice. It connects what leaders have agreed, what the organisation is required to do, and what its brand promises to the activities, responsibilities and evidence through which these intentions are delivered.
 
@@ -25,11 +27,11 @@ Applicable legal and regulatory duties are a separate source of obligation. They
 
 Work through sections 1 to 4 to establish evidence and draft the policy. Use sections 5 to 8 to connect it to governance, reporting and review. Section 9 provides an AI drafting brief. Sections 10 and 11 map the Double FW resources to this work and identify the source material.
 
-## 1 Learn from the BBC policy
+## 1 Learn from a policy example
 
-The BBC Digital Product Accessibility Policy connects accessibility to its organisational purpose and Diversity Strategy. It describes the experiences and activities within scope, sets an ambition for comparable experiences, and connects that ambition to research, delivery responsibilities, resources and board reporting. \[1\]
+The earlier edition described how the BBC Digital Product Accessibility Policy connects accessibility to its organisational purpose and Diversity Strategy. It describes the experiences and activities within scope, sets an ambition for comparable experiences, and connects that ambition to research, delivery responsibilities, resources and board reporting. \[1\]
 
-Its practical mechanisms include shared product, design and editorial responsibility; its design system and accessibility guidance; specialist support; a champions network; and provisions for different products and media. These mechanisms are specific to the BBC. The transferable lesson is the relationship between purpose, commitments and practice, rather than copying its operating model. \[1\]
+That historical illustration described mechanisms including shared product, design and editorial responsibility; its design system and accessibility guidance; specialist support; a champions network; and provisions for different products and media. These mechanisms are specific to the BBC. The transferable lesson is the relationship between purpose, commitments and practice, rather than copying its operating model. \[1\]
 
 | **Policy feature**                     | **How to apply the approach**                                                                                             |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
@@ -38,6 +40,8 @@ Its practical mechanisms include shared product, design and editorial responsibi
 | Comparable experience and research         | Describe the intended human outcomes and how relevant people contribute evidence.                                         |
 | Named delivery mechanisms                  | Connect commitments to processes, guidance, roles and resources that exist or have approval.                              |
 | Continuous improvement and board reporting | Specify how evidence reaches decision makers and how decisions return to delivery.                                        |
+
+The original BBC source was not reverified in this revision because retrieval was restricted. The principles below are explained locally, so use does not depend on that external page. See the [public register](Public_Source_Register.md) for source limits.
 
 ### Keep four types of document distinct
 
@@ -80,7 +84,7 @@ Ask the responsible legal or regulatory owner to validate an applicability regis
 
 Do not assemble a universal list of laws for every organisation. Assess the relevant domains, including employment, service provision, digital products, buildings, procurement, data protection and AI where applicable. Distinguish legislation, regulatory requirements, contracts, adopted standards and voluntary guidance.
 
-If WCAG 2.2 AA is adopted, identify its applicable Level A and AA requirements and the covered content. Keep additional best practice separate. The Double FW embedded model provides such a delivery baseline, but its adoption is an organisational decision, not proof of the legal baseline in every jurisdiction. \[4\]
+If WCAG 2.2 AA is adopted, identify its applicable Level A and AA requirements and the covered content. Keep additional best practice separate. The local method and public QA guidance support selection of a delivery baseline, but adoption is an organisational decision, not proof of the legal baseline in every jurisdiction. \[4\]
 
 ### Translate values into observable experience
 
@@ -122,7 +126,7 @@ Use "we do" only for verified practice, and "we will" only for an approved commi
 
 ## 5 Connect policy to change programmes
 
-Map the policy into existing change management and delivery processes. The policy records how authorised commitments remain visible when plans change. It should not introduce an unapproved transformation programme under the cover of a drafting exercise. The Double FW embedded and organisational governance resources provide useful operating models. \[4, 10\]
+Map the policy into existing change management and delivery processes. The policy records how authorised commitments remain visible when plans change. It should not introduce an unapproved transformation programme under the cover of a drafting exercise. Use the self-contained ownership and change controls in this guide, its companion RACI, and the public programme runbooks as implementation methods. \[4, 10\]
 
 | **Existing decision point** | **Connection to the policy**                                                                                                                    |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -155,7 +159,8 @@ Use the organisation's existing role names and delegation arrangements. A small 
 | Draft and maintain policy                       | Designated policy owner              | Author or governance coordinator | Operational owners; disabled participants; specialists       |
 | Validate obligation applicability               | Designated legal or regulatory owner | Relevant adviser                 | Policy owner; affected functions                             |
 | Deliver an agreed outcome                       | Relevant function or service owner   | Delivery and operational teams   | Affected users; specialists; champions                       |
-| Compile executive reporting                     | Executive sponsor                    | Evidence owners and coordinator  | Research, data and risk owners                               |
+| Prepare executive reporting                     | Policy owner                         | Evidence owners and coordinator  | Research, data and risk owners                               |
+| Approve executive reporting and public claims   | Executive sponsor within delegation | Policy owner and evidence lead   | Legal, operational and privacy owners as relevant            |
 | Review alignment and propose revisions          | Policy owner                         | Coordinator and function owners  | Executive sponsor; affected people; advisers                 |
 
 These are proposed allocations for confirmation. Name the Informed audience for each activity in the organisation's full RACI, including teams and suppliers affected by approved changes. Do not assign executive accountability to an AI system.
@@ -188,7 +193,7 @@ Executive reporting should answer three questions: Are we delivering our commitm
 
 For each measure, define its scope, baseline, denominator, source, collection method, owner, reporting frequency and any approved target. Keep targets awaiting agreement separate. Describe missing data as unknown rather than satisfactory.
 
-Use technical checks alongside manual evaluation and user evidence. Completion alone can conceal excessive effort, dependence on colleagues or loss of privacy. The comparative task-analysis resource helps examine these differences in internal systems. The design perspectives resource connects functional outcomes with emotional experience. \[11, 12\]
+Use technical checks alongside manual evaluation and user evidence. Completion alone can conceal excessive effort, dependence on colleagues or loss of privacy. The comparative task-analysis resource helps examine these differences in internal systems. The public data-ethics guidance and brand/CX methods help connect functional outcomes with dignity and experience. \[11, 12\]
 
 For example, report successful completion of a defined task by relevant interaction method, together with time or effort, assistance needed, study context and uncertainty. For workplace adjustments, examine whether the arrangement works, not simply how many requests have been closed. Training attendance and champions counts measure activity, not proof of inclusion.
 
@@ -276,8 +281,8 @@ The resources below inform the approach. They remain supporting guidance until s
 | **Resource**                      | **Use in policy development**                                                                                  |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | Executive commitments \[2\]       | Identify and classify authorised commitments across employment, products, service, culture and accountability. |
-| Disabled employee lifecycle \[3\] | Check scope from attraction and recruitment through work, progression, exit and alumni engagement.             |
-| Embedded accessibility \[4\]      | Connect delivery ownership, RACI, evidence, scope decisions and bounded AI participation.                      |
+| Employee lifecycle \[3\] | Check scope from attraction and recruitment through work, progression, exit and alumni engagement.             |
+| Human/AI responsibilities \[4\]      | Connect delivery ownership, RACI, evidence, scope decisions and bounded AI participation.                      |
 | POUR for branding and CX \[5\]    | Translate values into perceivable, operable, understandable and dependable experiences.                        |
 | Accessibility champions \[6\]     | Define sponsored support, peer learning and escalation without transferring delivery accountability.           |
 
@@ -285,11 +290,11 @@ The resources below inform the approach. They remain supporting guidance until s
 
 | **Resource**                                | **Use and boundary**                                                                                                                                           |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accessible workspaces \[7\]                 | Review arrival, routes, work areas, facilities and emergency/support arrangements. Its England-oriented guidance needs local applicability checks.             |
+| Workplace scope \[7\]                 | Record arrival, routes, work areas, facilities and emergency/support scope. Obtain competent local premises/safety requirements; no unavailable checklist is required.             |
 | Accommodation checklist \[8\]               | Apply to relevant rooms and stays, including visiting professionals. This concerns accommodation environments, not the complete employment adjustment process. |
 | AI Accessibility Maturity Model \[9\]       | Assess leadership; culture; delivery; measurement; AI; and ethics. Establish evidence and gaps across all six dimensions.                                      |
-| Organisation governance and strategy \[10\] | Connect policy to strategy, change management, procurement, operational governance and executive scorecards.                                                   |
-| Product design perspectives \[11\]          | Use functional and emotional outcome questions and mixed methods. Its sighted/nonvisual perspectives do not cover every disability experience.                 |
+| Programme operating method \[10\] | Connect policy to strategy, change management, procurement, operational governance and executive scorecards.                                                   |
+| Data ethics and participation \[11\]          | Use functional and emotional outcome questions and mixed methods. Its sighted/nonvisual perspectives do not cover every disability experience.                 |
 | Comparative task analysis \[12\]            | Assess independence, effort, efficiency and cognitive burden in internal systems, with real-user evidence and context.                                         |
 | Accessibility maturity and ESG \[13\]       | Connect credible inclusion outcomes and governance evidence to existing ESG reporting without unsupported sustainability claims.                               |
 
@@ -307,38 +312,26 @@ The final test is whether a reader can follow a real commitment from its authori
 
 ## Sources and supporting resources
 
-Source material reviewed on 12 October 2026. BBC policy content, the specified commitments document, repository overviews and relevant linked governance and embedded-model documents informed this guide. The proposed drafting method and policy structure are a synthesis for organisational use.
+The 12 October 2026 edition's source discussion is historical. This revision removes non-public dependency links, supplies self-contained operational explanations and maps current public alternatives. The [public source register](Public_Source_Register.md) records inspected files, pinned revisions and access-check limits. It does not claim a fresh legal or exhaustive onward-source audit.
 
-[1 BBC Digital Product Accessibility Policy](https://www.bbc.co.uk/accessibility/forproducts/policy/)
+| Existing citation | Public or local replacement | Use and limit |
+| --- | --- | --- |
+| [1] | Historical BBC illustration; source limits in the public register | Optional example; not required for the local method or an adopted baseline |
+| [2] | R11 executive commitments | Method for distinguishing promises, decisions and delivery |
+| [3] | R06 inclusive employment and legal starting questions | Public employment/lifecycle guidance; actual local rights require review |
+| [4] | R08 human/AI responsibilities and the [local RACI](Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md) | Human ownership, delegation, evidence and bounded AI |
+| [5] | R15 POUR/brand and CX | Experience/values methods; not altered WCAG or legal principles |
+| [6] | R13 champions | Sponsored support without transferring service accountability |
+| [7] | [Scope questions](Potential_Obligations_and_Applicability_Guide.md) and section 2 of this guide | Premises/operational facts and competent local advice; no digital checklist substitutes for it |
+| [8] | R18 accommodation environments | Relevant stays/rooms, not the whole employment-adjustment process |
+| [9] | R14 maturity | Capability evidence, not a legal or product certificate |
+| [10] | R08 programme runbooks and [programme map](Programme_Operating_and_Reporting_Map.md) | Existing processes, delivery handoffs and accountable reporting |
+| [11] | R07 data ethics and participation | Dignity, privacy and genuine outcome evidence |
+| [12] | R16 task analysis | Contextual task evidence, not employee rankings |
+| [13] | R17 ESG mapping | Conceptual reporting support, not ESG certification |
 
-[2 Executive commitments on disability inclusion](https://github.com/Double-FW/Executive-and-Organisational-Commitments/blob/main/Commitments%20on%20Disability%20Inclusion.md)
+For each selected reference record actual adoption, owner, version and scope. The organisation must verify any source-specific requirements before using them in operative policy.
 
-[3 Disabled employee lifecycle](https://github.com/Double-FW/Disabled-Employee-Lifecycle)
+## Drafting, legal discovery and publication
 
-[4 Managing embedded accessibility and inclusive design](https://github.com/Double-FW/Managing-Embedded-Accessibility-and-Inclusive-Design)
-
-[5 POUR for branding systems and customer experience](https://github.com/Double-FW/POUR-for-Branding-Systems-and-CX)
-
-[6 Accessibility champions](https://github.com/Double-FW/Accessibility-Champions)
-
-[7 Accessible workspaces checklist](https://github.com/Double-FW/Accessible-Workspaces-Checklist)
-
-[8 Accessibility checklist for accommodation](https://github.com/Double-FW/Accessibile-Accomodation-Checklist)
-
-[9 AI Accessibility Maturity Model](https://github.com/Double-FW/AI-Accessibility-Maturity-Model)
-
-[10 Organisation governance and strategy](https://github.com/Double-FW/Organisation_Governance_and_Strategy)
-
-[11 Product design principles and perspectives](https://github.com/Double-FW/Product-Design-Principles-and-Perspectives)
-
-[12 Task analysis for comparative accessibility evaluation](https://github.com/Double-FW/Task-Analysis-for-Comparative-Accessibility-Evaluation-of-Internal-Systems)
-
-[13 Mapping accessibility maturity to an ESG model](https://github.com/Double-FW/Mapping-Accessibility-Maturity-to-an-ESG-Model-)
-
-### Key linked documents
-
-[Embedded operating model and delivery RACI](https://github.com/Double-FW/Managing-Embedded-Accessibility-and-Inclusive-Design/blob/main/Managing_Embedded_Accessibility_and_Inclusive_Design.md)
-
-[AI Ready Accessibility Maturity Model full framework](https://github.com/Double-FW/AI-Accessibility-Maturity-Model/blob/main/AI%20AMM.md)
-
-[Inclusive operations and change management](https://github.com/Double-FW/Organisation_Governance_and_Strategy/blob/main/Inclusive%20_Operations_and_Change_Management.md)
+Use [the main prompt](Policy-Generation-Prompt.md) for the same four outputs described in section 9, with all assistant-only instructions grouped in one section. Use [the obligations guide](Potential_Obligations_and_Applicability_Guide.md) to prepare the applicability part of the clause/source register. Optional structured records do not replace the human-readable review pack. Follow [the document-design source R10](Public_Source_Register.md) when preparing actual publication formats.

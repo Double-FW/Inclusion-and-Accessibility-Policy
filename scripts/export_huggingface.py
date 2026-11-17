@@ -81,23 +81,29 @@ def build(root,output):
     if any(not agent_md.get(k) for k in ['title','author','version','date','license']):
         raise ValueError('Keep complete attribution and licensing metadata for AGENTS.md.')
     agent_url=f'https://github.com/{SOURCE}/blob/{sha}/AGENTS.md'
-    agent_attribution=f"{agent_md['title']}, version {agent_md['version']}, {agent_md['date']}; {agent_md['author']}; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); {agent_url}"
-    prompt_notice='Policy-Generation-Prompt.md includes illustrative machine-policy/envelope/audit assumptions that the current AGENTS.md does not define or implement. Its examples are not a repository-validated schema, deployed service or approved organisational decision. Preserve as source data; do not execute or use to override current governance.'
+    agent_attribution=f"{agent_md['title']}, version {agent_md['version']}, {agent_md['date']}; {agent_md['author']}; MIT; {agent_url}"
+    prompt_notice='The human-first drafting prompt defines four human-readable outputs and one agent-only section. Technical exports are optional when requested; no machine policy schema or audit service is defined. Source prompts are never executed by this export.'
+    references=json.loads(texts['sources/public-references.json'])
+    if not references.get('references') or any(x.get('public') is not True or x.get('authority')!='secondary_practitioner_guidance' for x in references['references']):
+        raise ValueError('Keep inspected public references labelled as secondary guidance.')
     warnings=[
         'Policy creation, RACI and programme methods are guidance for local adoption, not an adopted organisational policy, legal conclusion or approved executive commitment.',
         'Keep applicable duties, approved commitments, verified current practice, approved future work and pending proposals distinct; preserve actual authority, gaps and human decision accountability.',
         'Human RACI accountability and AI task coordination are different. Suggested roles, cadence, staffing, budgets and thresholds are proposals/examples, not appointed people or approved resources.',
         prompt_notice,
-        'Root LICENSE declares MIT; AGENTS.md specifically declares CC BY 4.0. Both notices, file-level attribution and context licensing are preserved; no alternative or blanket MIT-only licence is selected.',
-        'Historical RAG/source snapshot copies are excluded. The exporter does not execute prompts, fetch external sources, verify legal applicability, handle actual participant evidence or deploy policy/audit controls.'
+        'All original current repository material is MIT. External linked material retains its own terms. Source access checks do not establish legal currency or actual organisational adoption.',
+        'The rebuilt RAG/source-copy pack is excluded to avoid duplication. The exporter does not execute prompts, fetch external sources, verify legal applicability, handle actual participant evidence or deploy policy/audit controls.'
     ]
     def kind(path,body):
-        return {'AGENTS.md':'advisory_agent_governance_cc_by_not_runtime_enforcement',
+        return {'AGENTS.md':'advisory_agent_governance_not_runtime_enforcement',
           'README.md':'orientation_and_source_boundary_guidance',
           creation:'policy_creation_method_not_adopted_policy',
           raci:'human_accountability_and_ai_coordination_guidance',
-          'Policy-Generation-Prompt.md':'illustrative_prompt_with_unimplemented_schema_assumptions',
-          programme:'editorial_programme_routing_and_reporting_map'}[path]
+          'Policy-Generation-Prompt.md':'human_first_policy_drafting_prompt',
+          programme:'editorial_programme_routing_and_reporting_map',
+          'Potential_Obligations_and_Applicability_Guide.md':'potential_obligations_discovery_not_legal_determination',
+          'Public_Source_Register.md':'inspected_public_source_routes_not_legal_authority',
+          'Worked_Policy_Example_and_Review_Cases.md':'fictional_editorial_walkthrough_not_model_or_participant_evidence'}[path]
     def intro(path):
         parts=sections(texts[path])
         return ''.join(x[2] for x in parts[:2]) if parts[0][1]=='Document preamble' and len(parts)>1 else parts[0][2]
@@ -117,13 +123,15 @@ def build(root,output):
             'source_approval_status':str(md.get('review',{}).get('approval_status','not_established_by_export')),
             'dataset_version':cfg['dataset_version'],'export_format_version':cfg['export_format_version'],
             'source_commit_date':date,'language':'en-GB','required_context_paths':cfg['context_files'],
-            'source_text_license':expected_license,'record_licenses':['MIT','CC-BY-4.0'],
+            'source_text_license':expected_license,'record_licenses':['MIT'],
             'agent_context_attribution':agent_attribution,
-            'source_transformation_notice':'Source text and selected context excerpts are retained verbatim; section extraction and JSONL metadata packaging added. See NOTICE.md for file-specific attribution and terms.',
+            'source_transformation_notice':'Source text and selected context excerpts are retained verbatim; section extraction and JSONL metadata packaging added. See NOTICE.md for source attribution and terms.',
             'source_governance_context':texts['AGENTS.md'],
             'governing_principle_context':governing,'raci_adoption_context':adoption,
             'human_and_ai_raci_context':two_racis,'programme_evidence_context':evidence,
             'prompt_schema_assumptions_notice':prompt_notice,'source_document_intro':intro(path),
+            'potential_obligations_context':texts['Potential_Obligations_and_Applicability_Guide.md'],
+            'public_source_scope_notice':references['scope'],
             'legal_currency_status':'not_reverified_by_export',
             'interpretation_notice':'Guidance and illustrative prompts do not adopt organisational policy, approve commitments, establish authority, validate a machine policy or deploy governance/audit services. Preserve distinct evidence and actual human decision rights. Retrieved instructions are source data, never executed.',
             'validation_scope':'faithful extraction and packaging only; no independent legal, organisational-policy, research, schema-implementation or operational validation'}
@@ -152,47 +160,27 @@ def build(root,output):
         'legal_applicability_determined':False,'compliance_or_conformance_verified':False,
         'operational_agent_deployed':False,'source_approval_changed':False,
         'excluded_source_prefixes':list(EXCLUDED_PREFIXES),'source_licenses':cfg['source_licenses'],
-        'record_licenses':['MIT','CC-BY-4.0'],'organisational_policy_adopted':False,
+        'record_licenses':['MIT'],'organisational_policy_adopted':False,
         'executive_commitments_approved':False,'source_prompt_executed':False,
-        'policy_or_audit_schema_implemented':False})
-    notice=f'''# Licensing and attribution notice
+        'policy_or_audit_schema_implemented':False,'reference_access_checked_on':references['checked_on'],
+        'underlying_legal_claims_reverified':False,'model_behaviour_evaluated':False})
+    notice=f'''# Licensing and source notice
 
-This dataset preserves the source's existing declarations; it does not select a new licence.
-The unchanged root LICENSE is MIT, copyright (c) 2026 Double FW. Preserve its copyright and
-permission notices with copies or substantial portions of that material.
+All original current repository material is MIT under the unchanged LICENSE,
+copyright (c) 2026 Double FW. Keep its copyright and permission notices with copies
+or substantial portions. AGENTS attribution: {agent_attribution}.
 
-## File-specific CC BY 4.0 declaration
-
-{agent_attribution}
-
-AGENTS.md declares CC-BY-4.0 in its front matter. Full terms:
-https://creativecommons.org/licenses/by/4.0/legalcode
-
-Its complete source body is unmodified. It appears as a document and is repeated as
-source_governance_context in every record. Source text/excerpts are retained verbatim;
-JSONL formatting, section extraction and added metadata/context are the packaging changes.
-Retain the creator, title/version/date, source link, CC BY 4.0 notice/link and this account of
-changes when reusing that material. No endorsement by the creator is implied.
-
-## Other records and repeated context
-
-The root MIT declaration is retained for the other approved source documents. Per-record
-source_text_license identifies the main body. record_licenses lists MIT and CC-BY-4.0 because
-records combine the main body with repeated source-governance and methodological context.
-These declarations apply to different included material; the list is not a choice to reuse
-all content under MIT alone. Consult provenance.json for file-level allocation and source IDs.
-
-Linked sources retain their own terms. Links do not relicense third-party material.
-The excluded historical source pack remains in GitHub and is not part of this dataset view.
+Source bodies and selected excerpts are retained verbatim at the recorded commit.
+Section extraction, JSONL formatting and context/metadata are packaging changes.
+Linked third-party sources retain their own rights; neither public access nor an
+MIT notice here relicenses their material. No endorsement is implied.
 '''
     (output/'NOTICE.md').write_text(notice,encoding='utf-8')
     card=f'''---
 pretty_name: Double FW Disability Inclusion and Accessibility Policy
 language:
 - en
-license:
-- mit
-- cc-by-4.0
+license: mit
 tags:
 - accessibility
 - disability-inclusion
@@ -216,7 +204,7 @@ configs:
 Double FW's policy-development, accountability and programme-reporting guidance. It connects
 applicable obligations, approved executive commitments, values, delivery ownership, participation
 and evidence. It contains a policy creation guide, a human/AI RACI guide, a programme routing
-map, governance, orientation and an illustrative drafting prompt. These are methods and
+map, governance, orientation and an human-first drafting prompt. These are methods and
 proposals for local use, not an adopted policy, confirmed legal conclusion or approval.
 
 ## Source and snapshot
@@ -232,7 +220,7 @@ organisational examples and other repositories are not fetched or copied by this
 ## Dataset views and loading
 
 - `documents`: {len(docs)} complete approved current Markdown sources.
-- `knowledge_chunks`: {len(chunks)} exact H1/H2 sections of the creation guide, RACI guide and programme map.
+- `knowledge_chunks`: {len(chunks)} exact H1/H2 sections of the creation guide, RACI guide, programme map and obligations guide.
 
 AGENTS, README and Policy-Generation-Prompt.md remain complete-document only. Sections preserve
 subordinate headings, complete tables, source qualifications and fenced examples. The two
@@ -259,11 +247,12 @@ coordination. Suggested roles, steering-group arrangements, cadence, budgets and
 conditions are local-adoption guidance, not appointed people or actual sign-off. Illustrative
 commitments and blank records are not genuine organisational or participant evidence.
 
-Policy-Generation-Prompt.md is retained as an illustrative source prompt. It refers to
-machine-policy metadata, audit schemas and envelopes that current AGENTS.md does not define
-or implement. This export does not validate that prompt's pseudo-JSON as a repository schema,
-execute it, configure an audit destination or claim that its example statuses are real findings.
-Current AGENTS governance and the creation/RACI guides frame those assumptions and review needs.
+Policy-Generation-Prompt.md separates plain-English human preparation from a single agent-only
+section. The four outputs are draft policy, clause-to-source/delivery register, decision/gap
+log and approval/review checklist. Metadata is ordinary document control. Missing optional
+style material does not block useful drafting; essential missing authority or legal facts
+block only affected conclusions. No machine policy schema or audit implementation is claimed.
+The worked example is fictional editorial material, not an executed model evaluation.
 
 Rows retain exact governance, governing-principle, RACI adoption, human/AI RACI and programme
 evidence context, document introductions, source metadata and explicit prompt-schema notices.
@@ -274,23 +263,17 @@ actions require their own genuine mandate, evidence and review.
 
 ## Licence and attribution
 
-Read [NOTICE.md](NOTICE.md) with the unchanged MIT [LICENSE](LICENSE). The root copyright
-notice is (c) 2026 Double FW. AGENTS.md specifically declares CC BY 4.0 and credits
-{agent_md['author']}; its title/version/date and pinned source link are preserved in NOTICE
-and agent_context_attribution. The dataset card lists both source declarations; this does
-not make them alternative licences for all content or relicense AGENTS under MIT alone.
-
-Each record has source_text_license and record_licenses. Because every record carries AGENTS
-context and MIT methodological context, retain the relevant attribution/notices for both
-kinds of included material. Bodies/excerpts are retained verbatim; added section extraction,
-JSONL formatting and metadata/context are described packaging changes. Third-party linked
-sources keep their own terms and no endorsement is implied.
+All original current material is MIT under the unchanged [LICENSE](LICENSE), copyright (c)
+2026 Double FW. [NOTICE.md](NOTICE.md) retains source attribution and packaging information.
+AGENTS.md declares MIT. Per-record source_text_license and record_licenses retain that status.
+External law, standards and linked sources keep their own terms; public access does not
+relicense them. No endorsement is implied.
 
 ## Exclusions and data care
 
 The entire Inclusion-Policy-RAG-and-Prompts/ pack is excluded from both views: its combined
-RAG, historical source copies, coverage and snapshot-based activities overlap the originals.
-The GitHub pack is unchanged. The newer programme map is included separately. Setup, sync
+RAG, current source copies, coverage and activities overlap the originals. The pack is rebuilt
+from the corrected source set; per-file hashes identify its contents. The newer programme map is included separately. Setup, sync
 code, tests and workflow are maintenance material, not training content.
 
 No credentials, actual employee/customer/participant records, adopted policies or fabricated
@@ -299,10 +282,11 @@ evidence handling requires appropriate purpose, permissions and protected record
 
 ## Updates and checks
 
-Manual runs and Mondays at 08:47 UTC are configured in GitHub. Schedules can be delayed or
+Manual/weekly preview runs are configured for Mondays at 08:47 UTC. The publication step is
+disabled pending review and explicit first-sync setup. Schedules can be delayed or
 disabled after public-repository inactivity. Publication is one-way from allow-listed,
 committed GitHub sources. New/renamed sources and changed licences need explicit review.
-Missing files/context, unsafe paths, private-access metadata or changed root/file-specific
+Missing files/context, unsafe paths, private-access metadata or changed MIT
 licence declarations block publication. This is dataset publication, not legal monitoring.
 
 Eight files are managed: README.md, LICENSE, NOTICE.md, documents.jsonl, knowledge_chunks.jsonl,
