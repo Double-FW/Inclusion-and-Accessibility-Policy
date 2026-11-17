@@ -15,15 +15,9 @@ This repository provides a structured, practical set of materials for developing
 ## Contents
 
 ### 1. AGENTS.md
-The repository includes `AGENTS.md`, which defines machine-readable operational rules for automated agents, including:
-- YAML/JSON policy metadata
-- short prompt and response templates
-- observability and audit logging requirements
-- escalation and redaction rules
-- quick-start checklist and decision flowgraph
-- versioning, changelog, and review metadata
+The repository includes [AGENTS.md](AGENTS.md), which provides governance guidance for source authority, evidence, uncertainty, privacy and human decision boundaries. It is an instruction document, not an implemented policy-rule schema, audit service, deployment or enforcement system. Generated policy remains a draft until the organisation's authorised people approve it.
 
-This file is intended to help automation work consistently and safely when preparing or reviewing inclusion and accessibility policy content.
+AGENTS.md declares CC BY 4.0 in its front matter; the root LICENSE declares MIT. Retain the file-specific notice and attribution alongside the root licence when reusing the collection. External sources retain their own terms.
 
 ### 2. Accessibility and Inclusion Policy Creation Guide
 The main policy-development guide is:
@@ -134,7 +128,7 @@ Before the draft is considered usable for formal adoption, the organisation must
 - check that approved commitments are not overstated or conflated with aspirational intent
 - review participation evidence and unresolved barriers with affected stakeholders
 
-This prompt is most effective when used alongside `AGENTS.md` and `Accessibility_and_Inclusion_Policy_Creation_Guide.md`, which define the governance, audit, and automation expectations for policy drafting.
+This prompt is most effective when used alongside `AGENTS.md` and `Accessibility_and_Inclusion_Policy_Creation_Guide.md`, which guide source traceability and human governance for drafting. The separate Policy-Generation-Prompt.md contains illustrative machine-policy and audit assumptions that the current AGENTS.md does not define or implement; use them only as proposals for local review.
 
 ## Purpose
 
@@ -143,3 +137,8 @@ The repository supports organisations in designing inclusion and accessibility p
 ## Repository status
 
 This repository acts as a working reference for inclusion and accessibility policy development, operational governance, and agent-assisted policy handling.
+
+
+## Hugging Face dataset publication
+
+The [Hugging Face dataset](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy) is published from the approved current sources. Follow the [complete setup and verification guide](huggingface/SETUP.md) for token creation, the GitHub secret, first run and weekly publication. The historical RAG/source snapshot pack is excluded to avoid duplication. Source prompts are retained as data and are never executed. Publication does not adopt an organisational policy, approve commitments or deploy the described governance controls. Dataset documentation preserves both MIT and file-specific CC BY 4.0 notices with attribution.
