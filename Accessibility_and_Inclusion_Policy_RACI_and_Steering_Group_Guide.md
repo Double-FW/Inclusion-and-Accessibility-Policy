@@ -2,7 +2,9 @@ Accessibility and inclusion policy RACI and steering group guidance
 
 # Human accountability and agentic AI execution
 
-Version 1.0 | 12 October 2026
+Version 1.1 | 17 November 2026
+
+Original edition: 12 October 2026. Public-dependency and consistency revision; organisational adoption remains pending.
 
 This guide allocates responsibility for creating, maintaining and overseeing an accessibility and inclusion policy. It can also form the terms of reference for an accessibility and inclusion steering group or committee. It supports organisations with specialist teams and organisations that embed these responsibilities in existing roles.
 
@@ -196,7 +198,7 @@ An agentic system can schedule work, retrieve evidence, draft outputs, route dep
 
 In sections 8 and 9, R names the human responsible for the work and the agent executing a bounded step. A is always a human role. C and I identify people; machine inputs and outputs are dependencies, not substitutes for human consultation.
 
-This preserves the Double FW embedded model's rule that automation remains assigned to human responsibility. Different agents can be software components of one system; their labels do not establish independence or supply missing accessibility or D&E expertise.
+This preserves the local human-accountability rule: automated work remains assigned to actual human responsibility and delegation. Different agents can be software components of one system; their labels do not establish independence or supply missing accessibility or D&E expertise.
 
 ### Agree automation levels
 
@@ -337,34 +339,10 @@ Adoption record: approving authority; policy owner; sponsor and chair; covered e
 
 ## Sources and relationship to Double FW guidance
 
-This document is a companion to Creating an organisational accessibility and inclusion policy, version 1.0, dated 12 October 2026. It expands the governance allocation into complete R, A, C and I records and a proposed steering group remit.
+This is the companion to the [policy creation guide](Accessibility_and_Inclusion_Policy_Creation_Guide.md), version 1.1, revised 17 November 2026. Its H01–H16, A01–A10 and D01–D06 identifiers are stable local references. Allocations and committee arrangements remain proposed implementation guidance, not a regulator-prescribed staffing model or evidence of operational adoption.
 
-The allocations, committee arrangements and dependency model are proposed implementation guidance. They do not claim to be prescribed by WCAG, a regulator or the referenced repositories. Adopt them through the organisation's existing authority.
+The [public source register](Public_Source_Register.md) supplies inspected public working references. R08 supports human/AI responsibilities; R11 commitments; R06 employee lifecycle questions; R13 champions; R14 organisational capability; R07 participation/data ethics; R15 experience; R09 technical/reporting evidence; and R01–R05 candidate legal discovery where relevant. No private operating-model document is required to use the allocations and dependency explanations given here.
 
-### Primary operating model
+Use [the potential-obligations guide](Potential_Obligations_and_Applicability_Guide.md) to prepare H03 evidence and retain unresolved applicability for the competent human owner. The [main prompt](Policy-Generation-Prompt.md) provides the four-output drafting contract; H04 and A03 prepare that pack, while H08 remains the policy approval activity. A07 prepares reporting and H12 approves its use: these are separate decisions, not competing accountable owners.
 
-[Double FW Managing Embedded Accessibility and Inclusive Design](https://github.com/Double-FW/Managing-Embedded-Accessibility-and-Inclusive-Design/blob/main/Managing_Embedded_Accessibility_and_Inclusive_Design.md)
-
-Provides the conventional RACI definitions, embedded human ownership, retained human responsibility for automated work, specialist and champions support, and bounded AI controls. The AI tables here add an execution view while keeping RACI accountability with people.
-
-### Supporting organisational resources
-
-[Double FW Executive Commitments on Disability Inclusion](https://github.com/Double-FW/Executive-and-Organisational-Commitments/blob/main/Commitments%20on%20Disability%20Inclusion.md)
-
-[Double FW Organisation Governance and Strategy](https://github.com/Double-FW/Organisation_Governance_and_Strategy)
-
-[Double FW Accessibility Champions](https://github.com/Double-FW/Accessibility-Champions)
-
-[Double FW AI Accessibility Maturity Model](https://github.com/Double-FW/AI-Accessibility-Maturity-Model)
-
-[Double FW Disabled Employee Lifecycle](https://github.com/Double-FW/Disabled-Employee-Lifecycle)
-
-[Double FW Product Design Principles and Perspectives](https://github.com/Double-FW/Product-Design-Principles-and-Perspectives)
-
-These resources connect the policy to organisational commitments, distributed capability, employee experience, research and governance of AI. Use the adopted policy guide for the wider mapping to brand, workplaces, accommodation, comparative task analysis and ESG.
-
-### Preserve source and approval boundaries
-
-Record the exact versions or commits adopted by the organisation. A change to an upstream resource triggers review; it does not automatically change policy, permissions, responsibilities or executive commitments.
-
-Retain the distinction between professional advice and lived experience. Accessibility and D&E professionals provide specialist judgement within their competence. Disabled people contribute knowledge of their experiences and priorities. Neither contribution can safely be inferred from the other or replaced by an agent.
+Record actual source versions adopted by the organisation. An upstream change triggers review; it does not automatically change policy, permissions or executive commitments. Professional advice and lived-experience evidence remain distinct and cannot be inferred from each other or replaced by an agent.

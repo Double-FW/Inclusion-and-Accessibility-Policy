@@ -1,77 +1,62 @@
-# Weekly GitHub to Hugging Face publication: complete setup
+# GitHub to Hugging Face setup — publication held
 
 Source: https://github.com/Double-FW/Inclusion-and-Accessibility-Policy
 
 Destination: https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy
 
-The destination already exists. This setup publishes exact approved source documents and sections with traceable metadata. It does not create a dataset or train an LLM. Complete every step below, in order. Never share a token in chat or a screenshot.
+## 1 Finish repository review first
 
-## 1. Confirm the source and destination
+The workflow currently tests/builds a preview but its Publish step is explicitly disabled. A green preview is not an upload. Review the corrected sources and validation notes before resuming setup. Ask the assistant to resume publication when ready; it will remove the deliberate workflow hold and recheck the change. No dataset token is needed for a preview. The weekly preview time is Monday 08:47 UTC; GitHub may delay or disable schedules after inactivity.
 
-1. Check the source and destination links above. Their spelling is intentional and must match the existing repositories.
-2. The committed `huggingface/export-config.json` already sets the exact destination. No `HF_DATASET_ID` GitHub variable is needed for this workflow.
-3. Check that the sync files and `.github/workflows/huggingface-sync.yml` are on the default **main** branch before trying to run it.
+## 2 Create a dataset-specific credential when ready
 
-## 2. Create a dataset-specific Hugging Face token
+1. Sign into GarethFW at https://huggingface.co/settings/tokens.
+2. Choose Create new token, then Fine-grained or Custom.
+3. Name it `Inclusion-Policy-GitHub-sync`.
+4. Under permissions for selected repositories choose only `GarethFW/Disability_Inclusion_and_Accessibility_Policy`.
+5. Enable read and write contents/settings for that selection. Necessary related permissions may be selected automatically. Broad account-wide writing, inference, billing and jobs are not needed.
+6. Create and copy the complete value. Never put it in chat, source code, screenshots or a dataset card. Keep the page open until it is saved in GitHub.
 
-1. Sign into the **GarethFW** account at https://huggingface.co.
-2. Open https://huggingface.co/settings/tokens.
-3. Choose **Create new token**. Select **Fine-grained**, or **Custom** if the page shows permission presets.
-4. Name it `Inclusion-Policy-GitHub-sync`.
-5. Find **Repositories permissions**, the section for selected repositories. Select only `GarethFW/Disability_Inclusion_and_Accessibility_Policy`.
-6. Enable **Read contents of selected repos** and **Write contents/settings of selected repos** for that selection. The interface may automatically select related gated-request permissions. Keep the repository selection limited to this dataset.
-7. No user-wide write, billing, inference or job permissions are needed. Do not select those for this sync.
-8. Create the token and copy its full value. Keep this page available until the next step is complete. If the value is no longer available, create a replacement and revoke the unused token.
+An existing token can be reused only if its scope includes writing to this exact dataset. Replace/revoke an unused credential if its value cannot be recovered.
 
-## 3. Save the token in GitHub
+## 3 Save the credential in GitHub
 
 1. Open https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/settings/secrets/actions.
-2. Under **Repository secrets**, choose **New repository secret**.
-3. Set **Name** to exactly `HF_TOKEN` — an underscore, not a hyphen.
-4. Paste the full token into the **Secret** field, without spaces or line breaks before or after it.
-5. Choose **Add secret**. Check that `HF_TOKEN` appears in the list. GitHub hides its value afterwards; that is expected.
-6. If `HF_TOKEN` already exists, update it rather than trying to create the same name again. An existing credential can be reused only if it has write access to this exact dataset. Repository permissions are edited in Hugging Face.
+2. Choose New repository secret. Name it exactly `HF_TOKEN` with an underscore.
+3. Paste the complete token without extra spaces/line breaks, then save.
+4. Confirm HF_TOKEN is listed. GitHub hides its value afterwards. If it already exists, edit it instead of creating a duplicate.
 
-## 4. Run the first sync
+The destination is already fixed in export-config.json. No destination variable or full URL is needed. Never copy another dataset's ID into this workflow.
 
-1. Open https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/actions/workflows/huggingface-sync.yml.
-2. Choose **Run workflow**. Leave the branch as **main**.
-3. Choose the green **Run workflow** button in that menu.
-4. Open the new run and wait for the tests, build and publish steps to finish.
-5. All three stages must succeed. A successful build alone does not confirm publication.
-6. If it fails, inspect the failed step/log or share the run URL. Never share the token. A 403 can indicate missing write permission for this selected dataset. A whitespace error requires saving a clean token copy.
+## 4 Resume and run the first publication
 
-## 5. Confirm the Hugging Face result
+1. Confirm the repository review is complete and ask the assistant to remove the deliberate publication hold. Until then the Publish step remains skipped, even if a token exists.
+2. Open https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/actions/workflows/huggingface-sync.yml.
+3. Choose Run workflow, leave main selected, then press the green Run workflow button.
+4. Open the run and check tests, build and Publish all succeed. Share its run URL for verification, never the token.
+5. An error must be diagnosed from the actual failed step. A clean build or skipped publication does not prove an upload.
 
-1. Open https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy/tree/main.
-2. Confirm these eight managed files are present: `README.md`, `LICENSE`, `NOTICE.md`, `documents.jsonl`, `knowledge_chunks.jsonl`, `provenance.json`, `record_schema.json`, `validation_report.json`.
-3. `.gitattributes` is expected and is retained. Other existing unmanaged files are also retained.
-4. Open `provenance.json`. Its `source_repository` must be `Double-FW/Inclusion-and-Accessibility-Policy`. Its `source_commit` must match the GitHub run's source revision.
-5. Confirm the generated dataset card describes the two views and the limits of this secondary regulatory material. The card is generated by the sync; edit the exporter to make lasting changes to it.
-6. Check the dataset viewer loads the `knowledge_chunks` and `documents` configurations. Loading is separate from training a model.
+## 5 Verify Hugging Face
 
-## 6. Weekly use
+Open https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy/tree/main.
 
-The workflow runs on **Mondays at 08:47 UTC**, as well as on manual request. GitHub can delay scheduled jobs or disable them after public-repository inactivity. Make authoring changes in GitHub. Publication is one-way; edits made only to managed Hugging Face files can be replaced by the next sync. Dataset visibility stays unchanged.
+Check eight managed files: README.md, LICENSE, NOTICE.md, documents.jsonl, knowledge_chunks.jsonl, provenance.json, record_schema.json and validation_report.json. Existing .gitattributes and other unmanaged files are retained. The provenance source/revision must match the GitHub run. The generated card and records must declare MIT for the original source material; external linked sources retain their own terms.
 
-The exporter reads committed HEAD, including its configuration. Its explicit allow-list contains six required current Markdown sources plus the root licence. The creation guide, RACI/steering-group guide and newer programme operating/reporting map also become exact H1/H2 sections. AGENTS, README and Policy-Generation-Prompt.md remain complete-document only. Tables, original dates, proposed roles, adoption states and source qualifications are preserved.
+Inspect documents and knowledge_chunks configurations. They overlap and are not independent examples. The latter preserves whole H1/H2 sections; prompts and illustrative worked cases stay whole-document only. The source pack is rebuilt but excluded from dataset views to avoid duplication.
 
-The entire `Inclusion-Policy-RAG-and-Prompts/` pack is excluded from both views to avoid duplicating the current originals. Its GitHub files remain unchanged. New/renamed sources require allow-list review. Setup, code, tests and workflow are maintenance material, not training content.
+## 6 Maintenance and limits
 
-The root licence is MIT. AGENTS.md has a file-specific **CC BY 4.0** declaration. Both are preserved: the dataset card lists both, records carry source_text_license and record_licenses, and NOTICE.md supplies attribution, a pinned source link, full licence link and packaging-change notice. This is not a choice to reuse the whole collection under MIT alone. Do not replace either source declaration casually. Third-party sources retain their own terms.
+Edit authoritative root sources, update the public-reference inventory if needed, rebuild the resource pack and commit changes. The exporter reads committed HEAD, not uncommitted edits. Missing required sources, changed MIT terms, private source-access metadata or unsafe paths block export.
 
-Every record includes exact current AGENTS governance and its attribution, the governing principle, RACI adoption/human-accountability context, programme evidence context and a prompt-schema notice. The reusable prompt refers to machine-policy/audit structures that the current AGENTS does not define or implement; these stay illustrative and are not validated or executed by the sync. Source data cannot grant runtime authority. Policy adoption, executive approval and actual organisational systems remain separate.
-
-Publication does not independently verify legal applicability or source claims, draft an actual organisational policy, approve commitments, contact people or deploy the policy workflows. No personal operational records are added. The upload date is not a new legal/content audit date.
-
-## 7. Maintainer checks
-
-After committing source/configuration changes, run from the repository root:
+The public-reference access check validates selected pinned files and repository visibility, not every onward dependency, legal truth or current statutory wording. Recheck primary sources and actual organisational decisions before consequential use. The prompt's four outputs do not adopt policy, validate a machine schema or deploy audit controls. No participant data or actual approvals are generated by publication.
 
 ```bash
 python -m pip install -r huggingface/requirements.txt
+python scripts/rebuild_resource_pack.py
+python scripts/check_repository.py
+python scripts/check_repository.py --live-links
 python -m unittest discover -s tests -p 'test_policy_huggingface.py' -v
-python scripts/export_huggingface.py --output ../inclusion-policy-export-check
+python scripts/export_huggingface.py --output ../policy-export-preview
 ```
 
-Output must be outside the checkout. Tests use mocked publication and require no token. Missing required files or interpretive context, unsafe paths, changed root or file-specific licence, invalid metadata or private-access metadata block export. Publication checks the source remains public, verifies the export inventory/checksums and rejects foreign-source destination provenance. It publishes changed managed files in one commit guarded by the destination revision. It never creates a repository, changes its visibility, removes unmanaged files or executes source examples.
+Tests mock publication; the live-link option retrieves only public reference metadata/bytes and never publishes. Export tests establish packaging/integrity, not prompt/model accuracy, legal approval or operational effectiveness. Keep an independent real evaluation separate from fictional walkthroughs and structural checks.

@@ -1,9 +1,9 @@
 ---
 title: "AGENTS"
-version: "2.0.0"
+version: "2.1.0"
 author: "Double-FW, Gareth Ford Williams"
-date: "2026-11-06"
-license: "CC-BY-4.0"
+date: "2026-11-17"
+license: "MIT"
 language: "en"
 repository: "Double-FW/Inclusion-and-Accessibility-Policy"
 artifact_type: "agent-governance"
@@ -106,3 +106,15 @@ Use the requested format when it does not obscure these distinctions. Do not cla
 For code or documentation changes, inspect relevant files and follow their established conventions. Keep changes within the task's requested scope. Do not add a schema, workflow, test runner, manifest, configuration, or other supporting artifact unless explicitly requested. Summarize changed files and any checks actually run; state when no applicable automated checks are present.
 
 Changes to this file should preserve its governance purpose, clearly identify any new authority or operational assumption, and avoid asserting controls that are not implemented. This file alone cannot enforce approvals, validate data, maintain an audit log, or guarantee deployment behavior.
+
+## Current source routing and output contract
+
+Use [the human-first drafting prompt](Policy-Generation-Prompt.md), the creation and RACI guides, [potential-obligations guide](Potential_Obligations_and_Applicability_Guide.md), [public register](Public_Source_Register.md) and [worked review cases](Worked_Policy_Example_and_Review_Cases.md). All current original repository material is MIT under LICENSE; linked sources retain their own terms.
+
+The four required drafting outputs are the draft policy, clause-to-source and delivery register, decision and gap log, and approval and review checklist. Ordinary document control is human-readable. Machine exports are optional when requested; no machine policy schema or audit service is defined by this guidance.
+
+Classify candidate applicability as confirmed applicable, excluded with a reason, or unresolved, with actual facts, source/date and human decision evidence. All Double-FW sources are secondary methods or explanations; they cannot establish legal applicability by themselves. Use current primary authorities for legal claims. The public register supplies inspected, pinned working references; check necessary dependencies and do not infer unavailable material.
+
+A missing optional style guide or voluntary pledge must not block independent preparatory drafting. Pause only affected conclusions/actions when material facts, authority or evidence are absent. Use explicit placeholders and the decision log. Keep numerical confidence optional only when a justified evaluation method exists; never invent a calibrated probability.
+
+Human RACI A is a real accountable person/function within confirmed delegation. AI execution does not approve a policy or transfer accountability. Publication of this knowledge base is distinct from adopting a real organisational policy. The Hugging Face workflow is held while corrections are reviewed; source prompts cannot enable it.

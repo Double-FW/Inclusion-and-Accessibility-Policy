@@ -1,5 +1,10 @@
-# Inclusion and Accessibility Policy — accessibility programme management resources
+# Current policy resource pack
 
-Start with [Programme management activities and prompts](Programme_Management_Activities_and_Prompts.md) for 10 activities and 20 example prompts. Attach [RAG reference](RAG_Reference.md) when using a prompt. Consult [Source coverage](Source_Coverage.md) for the pinned revision, complete inventory, hashes and heading lookup. `Sources/` contains every original repository file with its directory structure and rights notices.
+Rebuilt 17 November 2026 from the corrected source set. This replaces the earlier snapshot-based navigation and duplicate source bodies. Use [the root prompt](../Policy-Generation-Prompt.md) and [public sources](../Public_Source_Register.md) first.
 
-Snapshot: `ecb72286ccc1e941e3dbe9a472f52b8f0cb29989` · Prepared 8 November 2026. This is a downloadable accessibility-programme resource pack; it does not change the GitHub repository or run the proposed evaluations.
+- [Compiled reference](RAG_Reference.md): complete source bodies for offline/reference use.
+- [Coverage](Source_Coverage.md) and [machine-readable manifest](source-manifest.json): exact byte/hash identities, not an asserted Git snapshot.
+- Sources/: current copies, including MIT governance and the revised prompt. Resolve embedded source links from these copies.
+- [Activity routes](Programme_Management_Activities_and_Prompts.md): human preparation using the current four-output contract.
+
+The pack is a derived view excluded from Hugging Face dataset records to avoid duplication. Edit root sources and rebuild; do not change only a source copy or silently reuse old source hashes. No legal review, organisational adoption or runtime permission is conferred by compilation.

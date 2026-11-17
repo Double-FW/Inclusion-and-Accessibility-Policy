@@ -1,144 +1,51 @@
-# Inclusion-and-Accessibility-Policy
+# Inclusion and accessibility policy
 
-An Approach to generating organisational policies that align with regulatory frameworks as well as executive commitments and organisational values.
+Version 1.1 · 17 November 2026 · Double FW · MIT
 
-## Repository overview
+A practical knowledge base for policy professionals and authorised AI assistance. It helps connect applicable duties, approved executive commitments and organisational values to actual activities, human ownership, participation, delivery evidence and review.
 
-This repository provides a structured, practical set of materials for developing and governing inclusion and accessibility policy in an organisation. It brings together:
+The material is guidance for drafting and local adoption. It is not an adopted organisational policy, a legal determination, a certification or an implemented policy/audit platform.
 
-- policy creation guidance
-- governance and accountability structures
-- operational decision-making patterns
-- agent rules and automation metadata
-- licensing and usage terms
+## Start with your task
 
-## Contents
+| Task | Read |
+| --- | --- |
+| Prepare a brief and draft policy without technical knowledge | [Main policy prompt](Policy-Generation-Prompt.md) |
+| Understand the policy-development method | [Creation guide](Accessibility_and_Inclusion_Policy_Creation_Guide.md) |
+| Allocate human accountability and bounded AI tasks | [RACI and steering group](Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md) |
+| Identify potential obligations and unresolved legal questions | [Applicability guide](Potential_Obligations_and_Applicability_Guide.md) |
+| Select public working references | [Public source register](Public_Source_Register.md) |
+| See four completed example outputs and review cases | [Worked example](Worked_Policy_Example_and_Review_Cases.md) |
+| Connect policy, capability, champions and outcomes | [Programme map](Programme_Operating_and_Reporting_Map.md) |
+| Use an AI assistant on the repository | [AGENTS.md](AGENTS.md) |
 
-### 1. AGENTS.md
-The repository includes [AGENTS.md](AGENTS.md), which provides governance guidance for source authority, evidence, uncertainty, privacy and human decision boundaries. It is an instruction document, not an implemented policy-rule schema, audit service, deployment or enforcement system. Generated policy remains a draft until the organisation's authorised people approve it.
+## Four required drafting outputs
 
-AGENTS.md declares CC BY 4.0 in its front matter; the root LICENSE declares MIT. Retain the file-specific notice and attribution alongside the root licence when reusing the collection. External sources retain their own terms.
+1. Draft policy.
+2. Clause-to-source and delivery register, including candidate applicability where needed.
+3. Decision and gap log.
+4. Approval and review checklist.
 
-### 2. Accessibility and Inclusion Policy Creation Guide
-The main policy-development guide is:
-- `Accessibility_and_Inclusion_Policy_Creation_Guide.md`
+The main prompt separates human preparation from one agent-only section. Document-control details are explained in plain English. Technical exports are optional only when requested; no policy-rule schema, message envelope or audit service is defined. Missing optional style material does not stop useful independent drafting; missing essential authority/evidence remains an explicit gap for affected clauses.
 
-This document provides the core methodology for generating organisational policies that:
-- align with regulatory frameworks
-- reflect executive commitments
-- express organisational values
-- support practical implementation and measurable outcomes
+## Sources, scope and decisions
 
-### 3. RACI and Steering Group Guide
-The repository also includes governance material for role clarity and oversight:
-- `Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md`
+Applicable law and contracts, approved commitments, verified practice, approved future activity and proposals have different authority. Double-FW sources are secondary practitioner guidance; they cannot determine an organisation's legal applicability. Inspect current primary sources and actual national/sector facts before a consequential conclusion, retaining dates, exceptions and human review.
 
-This guide covers:
-- roles and responsibilities
-- RACI-style accountability mapping
-- steering group composition and function
-- decision-making responsibilities for policy ownership and monitoring
+The public source register records 18 inspected public working documents and their revisions, not exhaustive legal verification or all onward dependencies. Use the local method if an optional source cannot be retrieved, or record the affected gap. Do not invent inaccessible source content. No private Double-FW repository is required by this edition.
 
-### 4. License
-The repository is distributed under the terms in:
-- `LICENSE`
+Proposed role maps, meetings, cadence, budgets and controls require actual local authority and capacity. A generated approval or a completed template is not an authenticated human decision. Keep private organisational evidence in controlled systems, not this public knowledge base.
 
-### 5. Documentation map
+## Public reuse and licensing
 
-This repository is organised as a policy and governance knowledge base containing:
-- policy generation methodology
-- governance implementation guidance
-- automation metadata and operational guardrails
-- legal and licensing information
+Original repository material is MIT under [LICENSE](LICENSE), including AGENTS, prompts, current source copies and compiled references. Preserve its copyright and permission notices. Linked third-party sources retain their own rights; public availability is not a general right to copy their contents. No endorsement is implied.
 
-## Recommended starting points
+The [RAG/resource pack](Inclusion-Policy-RAG-and-Prompts/README.md) is rebuilt from the current source set. It is a derived view, not independent authority. Its coverage file records exact source bodies and hashes; old snapshot counts and instructions must not be treated as current.
 
-If you are new to this repository, begin with:
-1. `AGENTS.md` for automation and operational guidance
-2. `Accessibility_and_Inclusion_Policy_Creation_Guide.md` for policy drafting methodology
-3. `Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md` for governance and accountability structure
-4. `LICENSE` for usage terms
+## Verification and changes
 
-## Policy generation prompt overview
+[Validation and review notes](VALIDATION.md) distinguish deterministic repository checks, editorial scenario walkthroughs and work not performed. Read [the change log](CHANGELOG.md) for substantive updates. Machine checks do not establish legal truth, genuine adoption, real participant evidence or prompt/model accuracy.
 
-This repository includes a reusable prompt for generating an organisational accessibility and inclusion policy from evidence, approved commitments, and governance context. The prompt is designed for a policy author, delegated governance lead, or AI-assisted drafting workflow. It is a drafting aid, not an authority to change organisational obligations or commitments.
+## Hugging Face publication is paused
 
-The purpose of the prompt is to produce a policy draft that:
-- reflects the organisation's mission, values, and approved commitments
-- aligns with applicable legal and regulatory duties
-- identifies the scope, decision owners, and evidence basis for each clause
-- distinguishes approved commitments from future intentions or unverified proposals
-- captures unresolved gaps or conflicts for human review before approval
-
-### Prompt inputs
-
-Provide the prompt with the following information:
-- organisation name and context
-- approved executive commitments
-- regulatory or contractual obligations that apply to the organisation
-- brand values, purpose, and strategic intent
-- operational activities, service journeys, and affected stakeholders
-- current governance, ownership, and delivery processes
-- evidence from research, testing, complaints, participation, and operational records
-- any known gaps, conflicts, or unresolved questions
-
-### Prompt instructions
-
-Use the following instruction pattern when generating a draft policy:
-
-```text
-Create a draft accessibility and inclusion policy for [organisation].
-Use the supplied approved commitments, validated applicability register, brand values,
-activity and journey inventory, current governance processes, and evidence pack.
-Reflect the organisation's own vocabulary, scope, and decision authority.
-Trace every substantive clause to its source identifier and preserve the approval status
-of each commitment or obligation.
-
-Connect each commitment to an intended outcome, relevant activity, process,
-accountable owner, evidence, reporting route, and review trigger.
-Do not invent legal conclusions, ownership, budgets, deadlines, certification claims,
-resource commitments, or delivery capabilities without evidence.
-Where information is missing, use a clearly marked placeholder and record the question for review.
-Identify conflicts, gaps, and approval questions, and state which authority should decide them.
-
-Return four outputs:
-1. the draft policy
-2. a clause-to-source and delivery register
-3. a decision and gap log
-4. an approval and review checklist
-
-Clearly identify which material is ready for review and which elements require executive,
-legal, or operational confirmation before adoption.
-```
-
-### Output requirements
-
-The generated output should include:
-- a policy draft with clear sections for purpose, scope, commitments, delivery, ownership, evidence, and review
-- clause-level traceability from each policy statement to its authority or evidence source
-- a decision log for conflicts, missing authority, and unresolved implementation gaps
-- an approval checklist confirming ownership, validation, and review readiness
-
-### Mandatory safeguards
-
-Before the draft is considered usable for formal adoption, the organisation must:
-- confirm the source authority for each material clause
-- validate all stated legal or regulatory obligations
-- verify ownership, reporting, and escalation responsibilities
-- check that approved commitments are not overstated or conflated with aspirational intent
-- review participation evidence and unresolved barriers with affected stakeholders
-
-This prompt is most effective when used alongside `AGENTS.md` and `Accessibility_and_Inclusion_Policy_Creation_Guide.md`, which guide source traceability and human governance for drafting. The separate Policy-Generation-Prompt.md contains illustrative machine-policy and audit assumptions that the current AGENTS.md does not define or implement; use them only as proposals for local review.
-
-## Purpose
-
-The repository supports organisations in designing inclusion and accessibility policy that is both compliant and values-driven. It is intended to help translate principles into operational practice, strengthen accountability, and embed measurable inclusion outcomes in governance and delivery.
-
-## Repository status
-
-This repository acts as a working reference for inclusion and accessibility policy development, operational governance, and agent-assisted policy handling.
-
-
-## Hugging Face dataset publication
-
-The [Hugging Face dataset](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy) is published from the approved current sources. Follow the [complete setup and verification guide](huggingface/SETUP.md) for token creation, the GitHub secret, first run and weekly publication. The historical RAG/source snapshot pack is excluded to avoid duplication. Source prompts are retained as data and are never executed. Publication does not adopt an organisational policy, approve commitments or deploy the described governance controls. Dataset documentation preserves both MIT and file-specific CC BY 4.0 notices with attribution.
+The destination is [Disability Inclusion and Accessibility Policy](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy). The workflow can test and build a preview, but its publication step is disabled while these corrections are reviewed. [Setup instructions](huggingface/SETUP.md) explain the later first-sync steps. The exporter uses MIT-only metadata and traceable current sources; it never executes the policy prompt or publishes an organisational policy.

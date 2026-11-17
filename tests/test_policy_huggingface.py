@@ -19,7 +19,7 @@ class PolicySyncTests(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.base=Path(self.tmp.name);self.repo=self.base/'repo';self.repo.mkdir()
         cfg=common.load_config(ROOT)
-        for name in cfg['files']+['LICENSE','huggingface/export-config.json']:
+        for name in cfg['files']+cfg['supporting_files']+['LICENSE','huggingface/export-config.json']:
             target=self.repo/name;target.parent.mkdir(parents=True,exist_ok=True)
             target.write_bytes(common.git(ROOT,'show','HEAD:'+name))
         self.git('init','-q');self.git('config','user.name','Test fixture');self.git('config','user.email','test@example.invalid');self.commit()
@@ -47,16 +47,17 @@ class PolicySyncTests(unittest.TestCase):
             self.assertIn('Adoption status',row['raci_adoption_context'])
             self.assertIn('How to use the two RACIs',row['human_and_ai_raci_context'])
             self.assertIn('Keep four kinds of evidence visible',row['programme_evidence_context'])
-            self.assertIn('does not define or implement',row['prompt_schema_assumptions_notice'])
+            self.assertIn('four human-readable outputs',row['prompt_schema_assumptions_notice'])
+            self.assertIn('applicability register',row['potential_obligations_context'])
             self.assertEqual(row['legal_currency_status'],'not_reverified_by_export')
         prompt=next(x for x in docs if x['source_path']=='Policy-Generation-Prompt.md')
-        self.assertEqual(prompt['record_type'],'illustrative_prompt_with_unimplemented_schema_assumptions')
+        self.assertEqual(prompt['record_type'],'human_first_policy_drafting_prompt')
         creation=next(x for x in docs if x['source_path']=='Accessibility_and_Inclusion_Policy_Creation_Guide.md')
         self.assertIn('12 October 2026',creation['text'])
 
-    def test_all_six_sources_and_limits_survive(self):
+    def test_all_corrected_sources_and_limits_survive(self):
         self.build();p=json.loads((self.out/'provenance.json').read_text())
-        self.assertEqual(len(self.rows('documents.jsonl')),6)
+        self.assertEqual(len(self.rows('documents.jsonl')),9)
         for key in ['source_instructions_executed','legal_currentness_verified','legal_applicability_determined','compliance_or_conformance_verified','operational_agent_deployed','source_approval_changed','external_sources_fetched','organisational_policy_adopted','executive_commitments_approved','source_prompt_executed','policy_or_audit_schema_implemented']:
             self.assertFalse(p[key])
         self.assertEqual(tuple(p['excluded_source_prefixes']),common.EXCLUDED_PREFIXES)
@@ -68,32 +69,32 @@ class PolicySyncTests(unittest.TestCase):
         self.commit();self.build()
         docs=self.rows('documents.jsonl');chunks=self.rows('knowledge_chunks.jsonl')
         self.assertTrue(all(not x['source_path'].startswith(common.EXCLUDED_PREFIXES) for x in docs+chunks))
-        self.assertEqual(len({x['source_path'] for x in chunks}),3)
+        self.assertEqual(len({x['source_path'] for x in chunks}),4)
         self.assertNotIn('Policy-Generation-Prompt.md',{x['source_path'] for x in chunks})
         self.change_config(lambda c:c['files'].append('Inclusion-Policy-RAG-and-Prompts/RAG_Reference.md'))
         with self.assertRaises(ValueError):self.build()
 
-    def test_metadata_attribution_and_both_licences_preserved(self):
+    def test_mit_metadata_and_attribution_preserved(self):
         self.build();rows=self.rows('documents.jsonl')+self.rows('knowledge_chunks.jsonl')
         for row in rows:
-            self.assertEqual(row['record_licenses'],['MIT','CC-BY-4.0'])
+            self.assertEqual(row['record_licenses'],['MIT'])
             self.assertIn('Gareth Ford Williams',row['agent_context_attribution'])
-            self.assertIn('creativecommons.org/licenses/by/4.0',row['agent_context_attribution'])
-            self.assertEqual(row['source_text_license'],'CC-BY-4.0' if row['source_path']=='AGENTS.md' else 'MIT')
+            self.assertIn('MIT',row['agent_context_attribution'])
+            self.assertEqual(row['source_text_license'],'MIT')
         agent=next(x for x in rows if x['source_path']=='AGENTS.md')
-        self.assertEqual(agent['declared_source_license'],'CC-BY-4.0')
-        self.assertEqual(json.loads(agent['metadata_json'])['version'],'2.0.0')
+        self.assertEqual(agent['declared_source_license'],'MIT')
+        self.assertEqual(json.loads(agent['metadata_json'])['version'],'2.1.0')
         self.assertEqual((self.out/'LICENSE').read_bytes(),self.git('show','HEAD:LICENSE'))
         notice=(self.out/'NOTICE.md').read_text()
-        self.assertIn('not a choice to reuse',notice)
+        self.assertIn('original current repository material is MIT',notice)
         from huggingface_hub import DatasetCard
-        self.assertEqual(DatasetCard((self.out/'README.md').read_text()).data.license,['mit','cc-by-4.0'])
+        self.assertEqual(DatasetCard((self.out/'README.md').read_text()).data.license,'mit')
 
     def test_changed_file_licence_or_licence_allocation_blocks(self):
-        p=self.repo/'AGENTS.md';saved=p.read_text();p.write_text(saved.replace('license: "CC-BY-4.0"','license: "MIT"',1));self.commit()
+        p=self.repo/'AGENTS.md';saved=p.read_text();p.write_text(saved.replace('license: "MIT"','license: "changed-terms"',1));self.commit()
         with self.assertRaises(ValueError):self.build()
         p.write_text(saved);self.commit()
-        self.change_config(lambda c:c['source_licenses'].update({'AGENTS.md':'MIT'}))
+        self.change_config(lambda c:c['source_licenses'].update({'AGENTS.md':'changed-terms'}))
         with self.assertRaises(ValueError):self.build()
 
     def test_repeatable_output(self):
@@ -129,7 +130,7 @@ class PolicySyncTests(unittest.TestCase):
             p.write_text(saved.replace('## '+title,'## Removed context',1));self.commit()
             with self.assertRaises(ValueError):self.build()
             p.write_text(saved);self.commit()
-        p=self.repo/'AGENTS.md';p.write_text(p.read_text().replace('license: "CC-BY-4.0"','license: Changed',1));self.commit()
+        p=self.repo/'AGENTS.md';p.write_text(p.read_text().replace('license: "MIT"','license: Changed',1));self.commit()
         with self.assertRaises(ValueError):self.build()
 
     def test_private_access_metadata_blocks_public_export(self):
@@ -219,6 +220,39 @@ class PolicySyncTests(unittest.TestCase):
                 dest=posixpath.normpath(posixpath.join(posixpath.dirname(path),unquote(u.path))) if u.path else path
                 self.assertIn(dest,files,path+' -> '+raw)
 
+    def test_repository_contract_and_rebuilt_pack_pass(self):
+        import check_repository
+        report=check_repository.check(ROOT)
+        self.assertEqual(report['errors'],[])
+        self.assertEqual(report['public_working_references'],18)
+
+    def test_raci_cannot_assign_accountability_to_an_agent(self):
+        import check_repository
+        target=self.base/'contract';shutil.copytree(ROOT,target,ignore=shutil.ignore_patterns('.git','__pycache__'))
+        path=target/'Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md'
+        lines=path.read_text().splitlines(True)
+        for i,line in enumerate(lines):
+            if line.startswith('| H01 '):
+                cells=line.split('|');cells[3]=' Agent ';lines[i]='|'.join(cells);break
+        path.write_text(''.join(lines))
+        self.assertTrue(any('human accountable owner' in e for e in check_repository.check(target)['errors']))
+
+    def test_stale_source_copy_is_detected(self):
+        import check_repository
+        target=self.base/'contract';shutil.copytree(ROOT,target,ignore=shutil.ignore_patterns('.git','__pycache__'))
+        p=target/'Inclusion-Policy-RAG-and-Prompts/Sources/AGENTS.md';p.write_text('Old governance')
+        self.assertTrue(any('Stale source copy/hash' in e for e in check_repository.check(target)['errors']))
+
+    def test_optional_material_does_not_prevent_independent_drafting(self):
+        prompt=(ROOT/'Policy-Generation-Prompt.md').read_text()
+        human,agent=prompt.split('## Instructions for the AI assistant — agent-only')
+        self.assertEqual(prompt.count('## Instructions for the AI assistant — agent-only'),1)
+        self.assertIn('A writing-style guide',human)
+        self.assertIn('does not block independent drafting',agent)
+        self.assertIn('exactly four required outputs',agent)
+        self.assertNotIn('rules.metadata',prompt)
+        self.assertNotIn('audit_event',prompt)
+
     def test_workflow_uses_fixed_source_schedule_and_secret(self):
         import yaml
         w=yaml.load((ROOT/'.github/workflows/huggingface-sync.yml').read_text(),Loader=yaml.BaseLoader)
@@ -227,5 +261,6 @@ class PolicySyncTests(unittest.TestCase):
         self.assertIn('workflow_dispatch',w['on'])
         self.assertEqual(w['permissions']['contents'],'read')
         self.assertEqual(w['jobs']['publish']['steps'][-1]['env']['HF_TOKEN'],'${{ secrets.HF_TOKEN }}')
+        self.assertEqual(w['jobs']['publish']['steps'][-1]['if'],'${{ false }}')
 
 if __name__=='__main__':unittest.main()
