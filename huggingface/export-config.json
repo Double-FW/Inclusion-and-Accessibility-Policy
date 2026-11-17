@@ -1,0 +1,45 @@
+{
+  "source_repository": "Double-FW/Inclusion-and-Accessibility-Policy",
+  "destination_dataset": "GarethFW/Disability_Inclusion_and_Accessibility_Policy",
+  "dataset_version": "1.0.0",
+  "export_format_version": "1.0.0",
+  "files": [
+    "AGENTS.md",
+    "README.md",
+    "Accessibility_and_Inclusion_Policy_Creation_Guide.md",
+    "Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md",
+    "Policy-Generation-Prompt.md",
+    "Programme_Operating_and_Reporting_Map.md"
+  ],
+  "required_files": [
+    "AGENTS.md",
+    "README.md",
+    "Accessibility_and_Inclusion_Policy_Creation_Guide.md",
+    "Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md",
+    "Policy-Generation-Prompt.md",
+    "Programme_Operating_and_Reporting_Map.md",
+    "LICENSE"
+  ],
+  "document_only_files": [
+    "AGENTS.md",
+    "README.md",
+    "Policy-Generation-Prompt.md"
+  ],
+  "context_files": [
+    "AGENTS.md",
+    "README.md",
+    "Accessibility_and_Inclusion_Policy_Creation_Guide.md",
+    "Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md",
+    "Policy-Generation-Prompt.md",
+    "Programme_Operating_and_Reporting_Map.md"
+  ],
+  "source_licenses": {
+    "AGENTS.md": "CC-BY-4.0",
+    "README.md": "MIT",
+    "Accessibility_and_Inclusion_Policy_Creation_Guide.md": "MIT",
+    "Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md": "MIT",
+    "Policy-Generation-Prompt.md": "MIT",
+    "Programme_Operating_and_Reporting_Map.md": "MIT"
+  },
+  "approved_license_sha256": "7ef02bc0b6ba376de57be5f27784eef23df6a74068a4a2a172f95ba2c605b7af"
+}
