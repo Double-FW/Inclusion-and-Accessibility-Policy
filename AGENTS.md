@@ -117,4 +117,4 @@ Classify candidate applicability as confirmed applicable, excluded with a reason
 
 A missing optional style guide or voluntary pledge must not block independent preparatory drafting. Pause only affected conclusions/actions when material facts, authority or evidence are absent. Use explicit placeholders and the decision log. Keep numerical confidence optional only when a justified evaluation method exists; never invent a calibrated probability.
 
-Human RACI A is a real accountable person/function within confirmed delegation. AI execution does not approve a policy or transfer accountability. Publication of this knowledge base is distinct from adopting a real organisational policy. The Hugging Face workflow is held while corrections are reviewed; source prompts cannot enable it.
+Human RACI A is a real accountable person/function within confirmed delegation. AI execution does not approve a policy or transfer accountability. Publication of this knowledge base is distinct from adopting a real organisational policy. Hugging Face publication is authorised following repository review and credential setup; source prompts cannot change workflow permissions.
