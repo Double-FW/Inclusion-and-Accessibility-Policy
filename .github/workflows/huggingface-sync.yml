@@ -32,10 +32,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_policy_huggingface.py' -v
       - name: Build and validate Disability Inclusion and Accessibility Policy dataset
         run: python scripts/export_huggingface.py --output "${RUNNER_TEMP}/inclusion-policy-dataset"
-      - name: Explain publication hold
-        run: echo 'Publication is paused pending repository review and first-sync setup.' >> "$GITHUB_STEP_SUMMARY"
       - name: Publish Disability Inclusion and Accessibility Policy dataset
-        if: ${{ false }}
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python scripts/publish_huggingface.py --folder "${RUNNER_TEMP}/inclusion-policy-dataset"

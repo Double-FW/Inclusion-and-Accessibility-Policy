@@ -282,8 +282,8 @@ evidence handling requires appropriate purpose, permissions and protected record
 
 ## Updates and checks
 
-Manual/weekly preview runs are configured for Mondays at 08:47 UTC. The publication step is
-disabled pending review and explicit first-sync setup. Schedules can be delayed or
+Manual and weekly publication runs are configured for Mondays at 08:47 UTC following
+repository review and credential setup. Schedules can be delayed or
 disabled after public-repository inactivity. Publication is one-way from allow-listed,
 committed GitHub sources. New/renamed sources and changed licences need explicit review.
 Missing files/context, unsafe paths, private-access metadata or changed MIT

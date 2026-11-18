@@ -46,6 +46,6 @@ The [RAG/resource pack](Inclusion-Policy-RAG-and-Prompts/README.md) is rebuilt f
 
 [Validation and review notes](VALIDATION.md) distinguish deterministic repository checks, editorial scenario walkthroughs and work not performed. Read [the change log](CHANGELOG.md) for substantive updates. Machine checks do not establish legal truth, genuine adoption, real participant evidence or prompt/model accuracy.
 
-## Hugging Face publication is paused
+## Hugging Face publication
 
-The destination is [Disability Inclusion and Accessibility Policy](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy). The workflow can test and build a preview, but its publication step is disabled while these corrections are reviewed. [Setup instructions](huggingface/SETUP.md) explain the later first-sync steps. The exporter uses MIT-only metadata and traceable current sources; it never executes the policy prompt or publishes an organisational policy.
+The destination is [Disability Inclusion and Accessibility Policy](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy). Following review, the workflow is enabled to check, build and publish on manual runs and Mondays at 08:47 UTC. [Setup instructions](huggingface/SETUP.md) explain the first run and verification. A successful build alone is not proof of upload. The exporter uses MIT-only metadata and traceable current sources; it never executes the policy prompt or publishes an organisational policy.

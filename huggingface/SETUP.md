@@ -1,12 +1,12 @@
-# GitHub to Hugging Face setup — publication held
+# GitHub to Hugging Face setup
 
 Source: https://github.com/Double-FW/Inclusion-and-Accessibility-Policy
 
 Destination: https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy
 
-## 1 Finish repository review first
+## 1 Review and publication status
 
-The workflow currently tests/builds a preview but its Publish step is explicitly disabled. A green preview is not an upload. Review the corrected sources and validation notes before resuming setup. Ask the assistant to resume publication when ready; it will remove the deliberate workflow hold and recheck the change. No dataset token is needed for a preview. The weekly preview time is Monday 08:47 UTC; GitHub may delay or disable schedules after inactivity.
+The user reviewed the corrected repository and authorised publication on 18 November 2026, then confirmed saving the dataset-specific HF_TOKEN secret. The deliberate upload hold has been removed. The workflow checks sources, runs tests, builds and publishes on manual runs and Mondays at 08:47 UTC. GitHub may delay or disable schedules after inactivity. A successful build alone is not proof of upload; verify the Publish step and destination provenance.
 
 ## 2 Create a dataset-specific credential when ready
 
@@ -30,7 +30,7 @@ The destination is already fixed in export-config.json. No destination variable 
 
 ## 4 Resume and run the first publication
 
-1. Confirm the repository review is complete and ask the assistant to remove the deliberate publication hold. Until then the Publish step remains skipped, even if a token exists.
+1. Repository review and removal of the publication hold are complete. Confirm HF_TOKEN is listed in the repository secrets before running.
 2. Open https://github.com/Double-FW/Inclusion-and-Accessibility-Policy/actions/workflows/huggingface-sync.yml.
 3. Choose Run workflow, leave main selected, then press the green Run workflow button.
 4. Open the run and check tests, build and Publish all succeed. Share its run URL for verification, never the token.

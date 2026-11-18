@@ -4,15 +4,15 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 11285,
-      "sha256": "17e6cf92915e829d657b1c0742f9ca6702fbef0d9b0e88cabaed17fe8bb088c5",
-      "git_blob_sha": "898b1fd9d40183b9a25f3ec4df1db04ca60e318f"
+      "bytes": 11326,
+      "sha256": "50109a0c192efc8bb576054468ded79094c70093af3d6f9cb88fbc182ea897bc",
+      "git_blob_sha": "6f4f231a076bffd41d9e46a48be14db0181baab4"
     },
     {
       "path": "README.md",
-      "bytes": 4721,
-      "sha256": "dabce924b492ee00f4cd552e1c8fa9787777752281ba392781ae8447574fcf29",
-      "git_blob_sha": "b30937e8fcc529895ef01ef7b61b13ad6ae516ee"
+      "bytes": 4757,
+      "sha256": "c6bcf2d261411517694e104c77653e5dd55d2e66bb7369ba84fa3b06f23fbdf6",
+      "git_blob_sha": "eae59b70d2f1902749257e8f0df046e1cfbe7d64"
     },
     {
       "path": "Accessibility_and_Inclusion_Policy_Creation_Guide.md",

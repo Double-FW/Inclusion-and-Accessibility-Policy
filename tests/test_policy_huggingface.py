@@ -261,6 +261,6 @@ class PolicySyncTests(unittest.TestCase):
         self.assertIn('workflow_dispatch',w['on'])
         self.assertEqual(w['permissions']['contents'],'read')
         self.assertEqual(w['jobs']['publish']['steps'][-1]['env']['HF_TOKEN'],'${{ secrets.HF_TOKEN }}')
-        self.assertEqual(w['jobs']['publish']['steps'][-1]['if'],'${{ false }}')
+        self.assertNotIn('if',w['jobs']['publish']['steps'][-1])
 
 if __name__=='__main__':unittest.main()

@@ -18,7 +18,7 @@ The public register records 18 inspected public working files at pinned commits.
 | Undefined machine/audit assumptions | Human-readable document control; optional technical export only when requested; no schema/audit service claimed |
 | Accountability ambiguity | Actual human A retained; preparation, substantive approval and publication distinguished |
 | Old source copies and hash claims | Pack rebuilt with current bodies and a new per-file manifest; no single Git snapshot is asserted |
-| Publication before review | Workflow's upload step explicitly disabled; preview checks/build remain possible |
+| Publication before review | Upload was held during correction review; the user subsequently authorised publication and confirmed credential setup on 18 November 2026 |
 
 ## Checks and practical review
 
@@ -33,8 +33,8 @@ The worked example follows all four outputs editorially. Review cases P01–P08 
 - Unit/integration safeguard suite: 28 tests passed. Publication calls were mocked; no Hugging Face write was performed.
 - Export preview: nine complete documents and 48 H1/H2 sections; all source allocations and the dataset card are MIT. The eleven required source/support/licence files were verified.
 - Eight review cases were walked through editorially against the rewritten instructions and guides. This is not an executed model test or independent accuracy result.
-- Workflow publication is explicitly disabled in this revision. A successful preview does not establish an upload.
+- The correction revision held publication during review. The subsequent publication-enablement change removes that hold after user review and confirmed credential setup; a successful preview still does not establish an upload.
 
 ## Remaining work
 
-Review the corrected knowledge base before resuming the deliberately held upload. Then complete credential setup, run the actual workflow and verify destination provenance. Real organisational adoption still needs genuine scope, competent review, owners, appropriate participation/data arrangements, operational evidence and authentic decisions.
+Review and credential setup have been confirmed by the user. Run the enabled workflow and verify destination provenance before reporting a successful first upload. Real organisational adoption still needs genuine scope, competent review, owners, appropriate participation/data arrangements, operational evidence and authentic decisions.

@@ -4,8 +4,8 @@ Rebuilt 17 November 2026 from the corrected current sources. This is a per-file 
 
 | Source | Bytes | SHA-256 | Git blob SHA |
 | --- | ---: | --- | --- |
-| [AGENTS.md](<Sources/AGENTS.md>) | 11285 | `17e6cf92915e829d657b1c0742f9ca6702fbef0d9b0e88cabaed17fe8bb088c5` | `898b1fd9d40183b9a25f3ec4df1db04ca60e318f` |
-| [README.md](<Sources/README.md>) | 4721 | `dabce924b492ee00f4cd552e1c8fa9787777752281ba392781ae8447574fcf29` | `b30937e8fcc529895ef01ef7b61b13ad6ae516ee` |
+| [AGENTS.md](<Sources/AGENTS.md>) | 11326 | `50109a0c192efc8bb576054468ded79094c70093af3d6f9cb88fbc182ea897bc` | `6f4f231a076bffd41d9e46a48be14db0181baab4` |
+| [README.md](<Sources/README.md>) | 4757 | `c6bcf2d261411517694e104c77653e5dd55d2e66bb7369ba84fa3b06f23fbdf6` | `eae59b70d2f1902749257e8f0df046e1cfbe7d64` |
 | [Accessibility_and_Inclusion_Policy_Creation_Guide.md](<Sources/Accessibility_and_Inclusion_Policy_Creation_Guide.md>) | 38107 | `bed4f207c118f8aa92c5370356d56903822bf2e5e7612aa87fa807b6be6df4b8` | `04705b8d9d58e683ebcd3e73b71e2994860896af` |
 | [Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md](<Sources/Accessibility_and_Inclusion_Policy_RACI_and_Steering_Group_Guide.md>) | 41443 | `9ebd9435e7666d1c6f033400156456f4f96c0e01b7867224dabba5e5de84763e` | `695955c82786e8f6a2d5e85639913ad041107ebc` |
 | [Policy-Generation-Prompt.md](<Sources/Policy-Generation-Prompt.md>) | 10333 | `68e53e3c7235c354bfdffff0b3e353f35e0d8e5f908af5ef1879e916e0352505` | `da3eb48c666ab201ac1775a2d2956d108d300073` |
