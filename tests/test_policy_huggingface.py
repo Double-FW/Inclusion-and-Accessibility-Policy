@@ -263,4 +263,21 @@ class PolicySyncTests(unittest.TestCase):
         self.assertEqual(w['jobs']['publish']['steps'][-1]['env']['HF_TOKEN'],'${{ secrets.HF_TOKEN }}')
         self.assertNotIn('if',w['jobs']['publish']['steps'][-1])
 
+
+    def test_broken_compiled_navigation_is_detected(self):
+        import check_repository
+        target=self.base/'compiled-navigation';shutil.copytree(ROOT,target,ignore=shutil.ignore_patterns('.git','__pycache__'))
+        path=target/'Inclusion-Policy-RAG-and-Prompts/RAG_Reference.md'
+        text=path.read_text();self.assertIn('Sources/Policy-Generation-Prompt.md',text)
+        path.write_text(text.replace('Sources/Policy-Generation-Prompt.md','Sources/missing-policy-prompt.md',1))
+        self.assertTrue(any('Local link:' in e for e in check_repository.check(target)['errors']))
+
+    def test_compiled_navigation_keeps_fenced_examples_and_source_local_anchors(self):
+        from rebuild_resource_pack import compiled_body
+        source='[Guide](../guide.md)\n```md\n[Example](keep.md)\n```\n[Part](#scope)\n'
+        compiled=compiled_body('docs/source.md',source)
+        self.assertIn('[Guide](<Sources/guide.md>)',compiled)
+        self.assertIn('[Example](keep.md)',compiled)
+        self.assertIn('[Part](<Sources/docs/source.md#scope>)',compiled)
+
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,6 @@
 # Source coverage and current body identities
 
-Rebuilt 17 November 2026 from the corrected current sources. This is a per-file byte/hash inventory, not the old snapshot or a claim of a single captured Git revision. Original source bodies are in Sources/. Source copies and the compiled reference are derived views, not independent authorities. All original included material is MIT; external links retain their own terms.
+Navigation rebuilt 20 November 2026 from the same current source bytes. This is a per-file byte/hash inventory, not the old snapshot or a claim of a single captured Git revision. Original source bodies are unchanged in Sources/. The compiled view resolves recognised relative inline Markdown links outside fenced examples to those copies, including source-local anchors; its text is therefore a disclosed navigation transformation, not the original byte stream. Source copies and the compiled reference are derived views, not independent authorities. All original included material is MIT; external links retain their own terms.
 
 | Source | Bytes | SHA-256 | Git blob SHA |
 | --- | ---: | --- | --- |
