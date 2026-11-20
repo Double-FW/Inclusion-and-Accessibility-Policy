@@ -8,6 +8,7 @@ import re
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from rebuild_resource_pack import compiled_body
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -28,8 +29,7 @@ def check(root=ROOT):
         if any(x in text for x in ['chatgpt.com/library','account_id=','file_id=libfile_']):errors.append('Private access metadata: '+name)
         if p.suffix!='.md':continue
         if text.count('```')%2:errors.append('Unbalanced fence: '+name)
-        # Compiled bodies retain source-relative links; validate the complete source copies instead.
-        if name=='Inclusion-Policy-RAG-and-Prompts/RAG_Reference.md':continue
+        # Compiled reader links now resolve to exact copies and are checked too.
         for raw in re.findall(r'(?<!!)\[[^\]]*\]\(([^)]+)\)',text):
             u=urllib.parse.urlsplit(raw.strip('<>'))
             if u.scheme or u.netloc:continue
@@ -61,7 +61,7 @@ def check(root=ROOT):
         data=(root/row['path']).read_bytes();copied=(pack/'Sources'/row['path']).read_bytes()
         if data!=copied or hashlib.sha256(data).hexdigest()!=row['sha256'] or len(data)!=row['bytes']:errors.append('Stale source copy/hash: '+row['path'])
         if hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()!=row['git_blob_sha']:errors.append('Stale source blob: '+row['path'])
-        if data.decode() not in rag:errors.append('Compiled source incomplete: '+row['path'])
+        if compiled_body(row['path'],data.decode()) not in rag:errors.append('Compiled source incomplete: '+row['path'])
     return {'status':'passed' if not errors else 'failed','errors':errors,'public_working_references':len(refs),
       'required_policy_outputs':4,'review_scenarios':8,'scope':'Structural/source preservation and cross-document contracts; no LLM, product, participant or legal assessment.'}
 
