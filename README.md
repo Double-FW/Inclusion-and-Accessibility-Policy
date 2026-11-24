@@ -49,3 +49,11 @@ The [RAG/resource pack](Inclusion-Policy-RAG-and-Prompts/README.md) is rebuilt f
 ## Hugging Face publication
 
 The destination is [Disability Inclusion and Accessibility Policy](https://huggingface.co/datasets/GarethFW/Disability_Inclusion_and_Accessibility_Policy). Following review, the workflow is enabled to check, build and publish on manual runs and Mondays at 08:47 UTC. [Setup instructions](huggingface/SETUP.md) explain the first run and verification. A successful build alone is not proof of upload. The exporter uses MIT-only metadata and traceable current sources; it never executes the policy prompt or publishes an organisational policy.
+
+## About the author
+
+Gareth Ford Williams is a senior leader in accessibility and inclusive design and co-founder of Double FW Ltd. His work spans accessibility, UX, technical standards, assistive technology and inclusive media. At the BBC, he led accessibility and UX work and chaired standards governance, translating research and policy into practical guidance.
+
+## About Double FW Ltd
+
+Double FW Ltd is a UK accessibility and inclusive design consultancy. It helps organisations build accessibility into strategy, governance, brands, products, content and services. Its public repositories provide practical guidance for people and AI-assisted workflows.
